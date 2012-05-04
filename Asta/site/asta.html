@@ -1,0 +1,750 @@
+<html>
+	<head>
+	
+		<style type="text/css" title="currentStyle">
+			@import "res/css/demo_page.css";
+			@import "res/css/demo_table.css";
+		</style>
+
+		<style type="text/css">
+		 	@import "res/css/themes/base/jquery.ui.all.css";
+		</style>
+		
+		<script type="text/javascript" src="res/js/jWebSocket.js"></script>
+				
+		<script type="text/javascript" src="res/js/asta-timer.js"></script>
+		<script type="text/javascript" src="res/js/asta-connector.js"></script>
+		<script type="text/javascript" src="res/js/asta-connection.js"></script>
+
+		<script type="text/javascript" src="res/js/jquery.js"></script>
+		<script type="text/javascript" src="res/js/jquery.dataTables.js"></script>
+		
+		<!--
+		<script src="../../external/jquery.bgiframe-2.1.2.js"></script>
+		-->
+		
+		<script src="res/js/ui/jquery.ui.core.js"></script>
+		<script src="res/js/ui/jquery.ui.widget.js"></script>
+		<script src="res/js/ui/jquery.ui.mouse.js"></script>
+		<script src="res/js/ui/jquery.ui.draggable.js"></script>
+		<script src="res/js/ui/jquery.ui.position.js"></script>
+		<script src="res/js/ui/jquery.ui.resizable.js"></script>
+		<script src="res/js/ui/jquery.ui.dialog.js"></script>		
+		<script src="res/js/ui/jquery.ui.progressbar.js"></script>
+				
+		<script type="text/javascript">
+		
+			var serverPort = getQueryParameter("port");
+			var clientID = getQueryParameter("clientID");
+			var astaID = getQueryParameter("astaID");
+			
+			// alert("Port: " + serverPort + ", Client: " + clientID);
+
+			var oRemainTable;
+			
+			function AstaConfig(opts) {
+				this.timeoutTurn = opts.timeoutTurn;
+				this.timeoutRaise = opts.timeoutRaise;
+			}
+		
+			/**
+			 * Player status
+			 */
+			function PlayerStatus(playerStatus) {
+				this.money = playerStatus.money;
+				this.calciatoriWon = playerStatus.calciatoriWon;
+			}
+			
+			/**
+			 * Status of asta
+			 */
+			function AstaStatus(astaStatus) {
+				this.players = astaStatus.players;
+				this.remainCalciatori = astaStatus.remainCalciatori;
+				this.currentCalciatore = astaStatus.currentCalciatore;
+				this.currentPlayerTurn = astaStatus.currentPlayerTurn;
+				this.remainTime = astaStatus.remainTime;
+				this.currentOffer = astaStatus.currentOffer;
+				this.currentOfferer = astaStatus.currentOfferer;
+			}
+
+			/**
+			 * GUI of asta
+			 */
+			function AstaGUI() {
+			
+				this.printInSpan = function(span, text, append) {
+					try {
+						if ( append != null && append == true) {
+							$( span ).html( $( span ).html() + text );
+						}
+						else {
+							$( span ).html( text );
+						}
+					}
+					catch (e) {
+						alert("Error: " + span + ", " + text + ", " + append + ". " + e);
+					}
+				}
+				
+				this.enableSelectButton = function(enable) {
+					if ( ! enable ) {
+						$('#selectCalciatori').dialog('close');
+						// $( '#selectCalciatore').attr('disabled', 'disabled');
+					}
+					else {
+						$('#selectCalciatori').dialog('open');
+						// $( '#selectCalciatore').removeAttr('disabled');
+					}
+				}
+
+				/**
+				 * Enable/Disable raise buttons
+				 */
+				this.enableRaiseButtons = function(enable) {
+					if ( ! enable ) {
+						$( '#raise_1').attr('disabled', 'disabled')
+						$( '#raise_5').attr('disabled', 'disabled')
+						$( '#raise_10').attr('disabled', 'disabled')
+					}
+					else {
+						$( '#raise_1').removeAttr('disabled');
+						$( '#raise_5').removeAttr('disabled');
+						$( '#raise_10').removeAttr('disabled');
+					}
+				} 
+				
+				this.setStatusMsg = function(text) {
+					this.printInSpan('#status', text);
+				} 
+
+				/**
+				 * Log functions
+				 */
+				this.log = function(text) {
+					this.printInSpan("#log", text + "<br/>", true);
+				}
+			
+			}
+			
+			/**
+			 * Asta Player
+			 */
+			function AstaController(astaConfig, astaGUI) {
+			
+				this.astaConfig = astaConfig;
+				this.astaGUI = astaGUI;
+				
+				this.astaStatus = null;
+				this.playerStatus = null;
+				
+				// Timer			
+				this.timer = new MyTimer({
+				
+					updateTime: 250,
+					
+					OnUpdateTime: function(time) {
+						
+						$( "#progressbar" ).progressbar({
+							value: (time * 1000)
+						});
+
+						astaGUI.printInSpan('#tempo', time + " s");
+						
+					},
+					
+					OnTimeout: function() {
+						astaController.timeout();
+					}
+				});
+				
+				this.initStatus = function(astaStatus, playerStatus) {
+					this.astaStatus = astaStatus;
+					this.playerStatus = playerStatus;
+				}
+				
+				this.updateCalciatoriWon = function() {
+				
+					$('#vinti').dataTable().fnClearTable();
+					for ( i = 0; i < this.playerStatus.calciatoriWon.length; i ++ ) {
+					
+						var calciatoreCosto = this.playerStatus.calciatoriWon[i];
+						
+						var calciatoreID = calciatoreCosto.calciatoreID;
+						var costo = calciatoreCosto.costo;
+						var acquistoID = calciatoreCosto.acquistoID;
+						
+						var calciatore = fantapazzConnector.calciatori[calciatoreID];
+						if ( calciatore != null ) {
+
+							$('#vinti').dataTable().fnAddData([
+								calciatore.Calciatore,
+								calciatore.Club,
+								calciatore.Ruolo_long,
+								costo
+							]);
+						
+							// astaGUI.log("Vinti: " + calciatore.Calciatore + ": " + calciatore.Club + " (" + calciatore.Ruolo_long + ")");
+						}
+						else {
+
+							$('#vinti').dataTable().fnAddData([
+								JSON.stringify(calciatoreCosto),
+								'?',
+								'?',
+								costo
+							]);
+						
+							// astaGUI.log("Vinti: Calciatore: " + JSON.stringify(calciatoreCosto));
+						}
+					}
+
+					// Remain money					
+					this.astaGUI.printInSpan('#money', this.playerStatus.money);
+
+					// Remained calciatori			
+					$('#remainCalciatori').dataTable().fnClearTable();
+					for ( i = 0; i < this.astaStatus.remainCalciatori.length; i ++ ) {
+					
+						var calciatoreID = this.astaStatus.remainCalciatori[i];
+						
+						var calciatore = fantapazzConnector.calciatori[calciatoreID];
+						if ( calciatore != null ) {
+
+							$('#remainCalciatori').dataTable().fnAddData([
+								calciatoreID,
+								calciatore.Calciatore,
+								calciatore.Club,
+								calciatore.Ruolo_long
+							]);
+						
+							// this.astaGUI.printInSpan('vinti', calciatore.Calciatore + ": " + calciatore.Club + " (" + calciatore.Ruolo_long + ")<br/>", true);
+						}
+						else {
+
+							$('#remainCalciatori').dataTable().fnAddData([
+								calciatoreID,
+								calciatoreID,
+								'?',
+								'?'
+							]);
+						
+							// this.astaGUI.printInSpan('vinti', 'Calciatore: ' + JSON.stringify(calciatoreCosto) + "<br/>", true);
+						}
+					}
+				
+				}
+				
+				/**
+				 * Update fields for asta based on the asta status
+				 */
+				this.updateGUI = function() {
+				
+					if (this.astaStatus.currentCalciatore) {
+						var calciatore = fantapazzConnector.calciatori[this.astaStatus.currentCalciatore];
+						if ( calciatore != null ) {
+							this.astaGUI.printInSpan('#giocatore', calciatore.Calciatore);
+							this.astaGUI.printInSpan('#squadra', calciatore.Club);
+							this.astaGUI.printInSpan('#ruolo', calciatore.Ruolo_long);
+						}
+						else {
+							this.astaGUI.printInSpan('#giocatore', 'Calciatore: ' + this.astaStatus.currentCalciatore);
+							this.astaGUI.printInSpan('#squadra', '?');
+							this.astaGUI.printInSpan('#ruolo', '?');
+						}
+					}
+				
+					if (this.astaStatus.currentOfferer) {
+						this.astaGUI.printInSpan('#offerta', this.astaStatus.currentOffer);
+						this.astaGUI.printInSpan('#offerente', this.astaStatus.currentOfferer);
+					}
+
+					if ( this.astaStatus.currentCalciatore != null && this.astaStatus.currentOfferer != null ) {
+						this.astaGUI.enableRaiseButtons(this.astaStatus.currentOfferer != clientID);
+					}					
+										
+				}
+				
+				this.receiveMsgHello = function(msg) {
+				
+					var before = new Date().getTime();
+
+					// Log
+					this.astaGUI.log("Message: HELLO - "); //  + JSON.stringify(msg));
+
+					// Initialize internal status				
+					this.initStatus(msg.content.astaStatus, msg.content.playerStatus);
+			
+					// Set status message
+					if ( this.astaStatus.currentCalciatore == null ) {
+						this.astaGUI.setStatusMsg('Giocatore ' + fantapazzConnector.getSquadra(this.astaStatus.currentPlayerTurn).Alias + ' sta scegliendo un calciatore');
+						this.astaGUI.enableSelectButton(this.astaStatus.currentPlayerTurn == clientID);
+					}
+
+					// Update status of asta
+					this.updateGUI();
+					
+					this.updateCalciatoriWon();
+																														
+					var after = new Date().getTime();
+					
+					var rest = this.astaStatus.remainTime - (after - before);
+					
+					if ( rest < 5000 ) {
+						return;
+					}
+					
+					// Start timer
+					this.timer.startTimer(rest);
+					
+					$( "#progressbar" ).progressbar({
+						max: rest
+					});
+					
+					if ( this.astaStatus.currentCalciatore == null && this.astaStatus.currentPlayerTurn == clientID ) {
+						showSelect();
+					}
+					else {
+						showAsta();
+					}
+
+				}
+			
+				this.receiveMsgChoose = function(choose) {
+
+					var before = new Date().getTime();
+					
+					// Log				
+					astaGUI.log("Message: CHOOSE - " + JSON.stringify(choose));
+
+					// Stop current timer
+					this.timer.stopTimer();
+					
+					// Set player turn
+					this.astaStatus.currentPlayerTurn = choose.playerID;
+					this.astaStatus.currentCalciatore = null;
+					this.astaStatus.currentOffererer = null;
+					this.astaStatus.currentOffer = null;
+					
+					// Update status of asta
+					this.updateGUI();
+
+					// Status message
+					astaGUI.setStatusMsg('Turno di ' + fantapazzConnector.getSquadra(choose.playerID).Alias );
+
+					// Enable select button				
+					astaGUI.enableSelectButton( choose.playerID == clientID );
+					
+					if ( choose.playerID == clientID ) {
+						// TODO
+					}
+					else {
+						// TODO
+					}
+					
+					var after = new Date().getTime();
+					
+					var rest = astaConfig.timeoutTurn - (after - before);
+
+					// Start timer
+					this.timer.startTimer(rest);
+
+					$( "#progressbar" ).progressbar({
+						max: rest
+					});
+					
+					if ( choose.playerID == clientID ) {
+						showSelect();
+					}
+					else {
+						showAsta();
+					}
+
+				}
+
+				this.receiveMsgOffer = function(offer) {
+				
+					var before = new Date().getTime();
+
+					astaGUI.log("Message: OFFER - " + JSON.stringify(offer));
+					
+					this.timer.stopTimer();
+
+					// Save current offer
+					this.astaStatus.currentOffer = offer.offer;
+					this.astaStatus.currentOfferer = offer.source;
+
+					// Update status of asta
+					this.updateGUI();
+					
+					var after = new Date().getTime();
+					
+					var rest = astaConfig.timeoutRaise - (after - before);
+
+					// Start timer
+					this.timer.startTimer(rest);
+
+					$( "#progressbar" ).progressbar({
+						max: rest
+					});
+
+				}
+
+				this.receiveMsgSelect = function(select) {
+
+					var before = new Date().getTime();
+
+					// Log				
+					astaGUI.log("Message: SELECT - " + JSON.stringify(select));
+
+					// Stop timer
+					this.timer.stopTimer();
+
+					// Update data
+					this.astaStatus.currentCalciatore = select.calciatoreID;
+					this.astaStatus.currentOffer = 1.0;
+					this.astaStatus.currentOfferer = select.source;
+					
+					// Remove remained giocatore
+					for ( index = 0; index < this.astaStatus.remainCalciatori.length; index ++) {
+						if ( this.astaStatus.remainCalciatori[index] == select.calciatoreID ) {
+							this.astaStatus.remainCalciatori.splice(index, 1);
+							break;
+						}
+					}
+									
+					// Update status of asta
+					this.updateGUI();
+					
+					var after = new Date().getTime();
+					
+					var rest = astaConfig.timeoutRaise - (after - before);
+
+					// Start timer
+					this.timer.startTimer(rest);
+
+					$( "#progressbar" ).progressbar({
+						max: rest
+					});
+
+				}
+
+				this.receiveMsgWinner = function(winner) {
+
+					astaGUI.log("Message: WINNER - " + JSON.stringify(winner));
+					
+					// Stop timer
+					this.timer.stopTimer();
+
+					if ( winner.youWin ) {
+					
+						this.playerStatus.calciatoriWon.push({ 
+							calciatoreID: winner.calciatoreID,
+							costo: winner.value,
+							acquistoID: -1
+						});
+						
+						this.playerStatus.money	-= winner.value;
+						
+						// Status message
+						astaGUI.setStatusMsg('Hai ottenuto il giocatore: ' + winner.calciatoreID );
+						
+					}
+					
+					// Update status of asta
+					this.updateGUI();
+					
+					this.updateCalciatoriWon();
+					
+				}
+				
+				this.timeout = function() {
+				
+					astaGUI.setStatusMsg( 'Fine timer' );
+				
+				}
+						
+			}
+						
+			var astaConfig = new AstaConfig({
+				timeoutTurn: 30000,
+				timeoutRaise: 10000
+			});
+						
+			// GUI
+			var astaGUI = new AstaGUI();
+			
+			// Controller
+			var astaController = new AstaController(astaConfig, astaGUI);
+
+			/**
+			 * Send HELLO message
+			 */
+			function sendHelloMsg(ID) {
+				astaConnection.sendMsg("it.fantapazz.asta.core.protocol.MsgHelloPlayer", { source: ID });
+			}
+
+			/**
+			 * Send SELECT message
+			 */
+			function sendSelectMsg(calciatoreID) {
+				astaConnection.sendMsg("it.fantapazz.asta.core.protocol.MsgSelect", { 
+					calciatoreID: calciatoreID
+				});
+			}
+
+			/**
+			 * Send RAISE message
+			 */
+			function sendRaiseMsg(value, calciatoreID) {
+				astaConnection.sendMsg("it.fantapazz.asta.core.protocol.MsgOffer", { 
+					offer: value,  
+					calciatoreID: calciatoreID
+				});
+			}
+
+			// Connection with asta server			
+			var astaConnection = new AstaConnection("org.jWebSocket.plugins.asta." + serverPort, {
+			
+				OnOpen: function( aEvent ) {
+					sendHelloMsg(clientID);
+					astaConnection.lWSC.startKeepAlive({ immediate: true, interval: 15000, echo: true });
+				},
+							
+				OnClose: function( aEvent ) {
+					astaController.stopTimer();
+				},
+							
+/*
+				OnMessage: function( aEvent, aToken ) {
+					if ( aToken.type == "asta" ) {
+						astaConnection.receiveMsg(aToken);
+					}
+					else {
+						astaGUI.log("Message: " + aEvent.data + ", " + aToken);
+					}
+				}
+*/
+
+				receiveMsg: function(type, message) {
+
+					if ( type == 'it.fantapazz.asta.core.protocol.MsgHelloServer') {
+						astaController.receiveMsgHello(message);
+					}
+					else if ( type == 'it.fantapazz.asta.core.protocol.MsgChoose') {
+						astaController.receiveMsgChoose(message);
+					}
+					else if (type == 'it.fantapazz.asta.core.protocol.MsgOffer') {
+						astaController.receiveMsgOffer(message);
+					}
+					else if (type == 'it.fantapazz.asta.core.protocol.MsgSelect') {
+						astaController.receiveMsgSelect(message);
+					}
+					else if (type == 'it.fantapazz.asta.core.protocol.MsgWinner') {
+						astaController.receiveMsgWinner(message);
+					}
+				
+				}
+			
+			});
+
+			// Connector to fantapazz server			
+			var fantapazzConnector = new FantapazzConnector();
+									
+			function fakeShow() {
+				$( '#select' ).show();
+				$( '#asta' ).show();
+			}
+			
+			function showConnect() {
+				$( '#select' ).hide();
+				$( '#asta' ).hide();
+				fakeShow();
+			}
+
+			function showSelect() {
+				$( '#select' ).show();
+				$( '#asta' ).hide();
+				fakeShow();
+			}
+
+			function showAsta() {
+				$( '#select' ).hide();
+				$( '#asta' ).show();
+				fakeShow();
+			}
+			
+			function raise(value) {
+				var calciatoreID = astaController.astaStatus.currentCalciatore;
+				var currentValue = astaController.astaStatus.currentOffer;
+				sendRaiseMsg(currentValue + value, calciatoreID);
+			}
+
+			function getQueryParameter( parameterName ) {
+				var queryString = window.top.location.search.substring(1);
+				var parameterName = parameterName + "=";
+				if ( queryString.length > 0 ) {
+					begin = queryString.indexOf ( parameterName );
+					if ( begin != -1 ) {
+						begin += parameterName.length;
+						end = queryString.indexOf ( "&" , begin );
+						if ( end == -1 ) {
+							end = queryString.length
+						}
+						return unescape ( queryString.substring ( begin, end ) );
+					}
+				}
+				return "null";
+			}
+		
+		$(document).ready(function() {
+		
+			// alert("Connect: " + clientID + ", port: " + serverPort);
+
+			$('#vinti').dataTable();
+			
+			oRemainTable = $('#remainCalciatori').dataTable();
+
+			/* Add a click handler to the rows - this could be used as a callback */
+			$("#remainCalciatori tbody").click(function(event) {
+			
+				$(oRemainTable.fnSettings().aoData).each(function (){
+					$(this.nTr).removeClass('row_selected');
+				});
+				$(event.target.parentNode).addClass('row_selected');
+
+				var aTrs = oRemainTable.fnGetNodes();
+				for ( var i=0 ; i<aTrs.length ; i++ ) {
+					if ( $(aTrs[i]).hasClass('row_selected') ) {
+						var aData = oRemainTable.fnGetData(aTrs[i]);
+						astaController.timer.stopTimer();
+						sendSelectMsg(aData[0]);
+						astaGUI.enableSelectButton(false);
+						break;
+					}
+				}
+				
+			});
+			
+			$('#selectCalciatori').dialog({
+				autoOpen: false,
+				width: 600
+			});			
+
+			
+			$( "#progressbar" ).progressbar();
+								
+			fantapazzConnector.load();
+				
+			showAsta();
+			
+			astaGUI.enableRaiseButtons(false);
+			
+			astaGUI.enableSelectButton(false);
+							
+			var squadra = fantapazzConnector.getSquadra(clientID);
+			
+			astaGUI.printInSpan('#squadra', squadra.Alias );
+			
+			var astaInfo = fantapazzConnector.getAsta(astaID);
+			
+			for ( i = 0; i < astaInfo.ID_fSquadre.length; i ++ ) {
+			
+				var squadra = fantapazzConnector.getSquadra(astaInfo.ID_fSquadre[i]);
+				
+				astaGUI.log("Loaded: " + squadra.Alias);
+				
+			}
+			
+			astaConnection.connect();
+						
+		});
+		
+		</script>
+	</head>
+<body>
+
+	<h1>Benvenuta squadra: <span id="squadra"></span></h1>
+
+	<div id="selectCalciatori" style="width: 300px;" title="Basic modal dialog">
+		<h1>Scegli calciatore</h1>
+		<p>
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="remainCalciatori">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Calciatore</th>
+						<th>Club</th>
+						<th>Ruolo</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</p>
+	</div>
+
+	<p>
+		<div id="progressbarWrapper" style="height:30px; " class="ui-widget-default">
+			<div id="progressbar" style="height:100%;"></div>
+		</div>
+	</p>
+	
+	Tempo rimasto: <span id="tempo"></span>
+
+	<div id="asta">
+		<h1>Pagina asta</h1>
+		<p>
+			Giocatore all'asta: <span id="giocatore"></span><br/>
+			Squadra: <span id="squadra"></span><br/>
+			Ruolo: <span id="ruolo"></span><br/>
+		</p>
+		<p>
+			Offerta corrente: <span id="offerta"></span><br/>
+			Offerente: <span id="offerente"></span><br/>
+		</p>
+		<p>
+			Status: <span id="status"></span><br/>
+		</p>
+		<p>
+			<form>
+				<input type="button" id="raise_1" onclick="raise(1);" value="+1" />
+				<input type="button" id="raise_5" onclick="raise(5);" value="+5" />
+				<input type="button" id="raise_10" onclick="raise(10);" value="+10" />
+			</form>
+		</p>
+		
+		<h1>Stato asta</h1>
+		<h2>Soldi rimasti</h2>
+		<p>
+			<span id="money"></span> Fantamiliardi
+		</p>
+		
+		<div>
+		<h2>Giocatori vinti</h2>
+		<p>
+		
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="vinti">
+				<thead>
+					<tr>
+						<th>Calciatore</th>
+						<th>Club</th>
+						<th>Ruolo</th>
+						<th>Costo</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</p>
+		</div>
+		
+	</div>
+
+		<h1>Log</h1>
+		<p>
+			<span id="log">
+			</span>
+		</p>
+	</body>
+</html>

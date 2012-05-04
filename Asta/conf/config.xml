@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<!-- ************* -->
+	<!-- Configuration -->
+	<!-- ************* -->
+	<bean id="settings" class="it.fantapazz.ConfigSettings">
+
+		<property name="dumpMessages" value="true" />
+
+		<property name="enableZip" value="false" />
+
+		<property name="useJson" value="true" />
+
+		<property name="activateStats" value="false" />
+
+		<property name="terminateAsta" value="true" />
+
+		<property name="useFakeConnector" value="false" />
+
+		<property name="enablePing" value="true" />
+
+		<property name="pingTime" value="5.0" />
+	
+		<property name="hostConnection" value="localhost" />
+
+		<property name="proxyEnabled" value="false" />
+		
+		<property name="proxyHost" value="proxy.eng.it" />
+		<property name="proxyPort" value="3128" />
+		<property name="proxyUsername" value="micmastr" />
+		<property name="proxyPassword" value="apriti80" />
+
+	</bean>
+		
+</beans>

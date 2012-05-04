@@ -1,0 +1,48 @@
+<assembly>
+
+	<id>AstaOnline</id>
+
+	<formats>
+		<format>tar.gz</format>
+		<!-- <format>dir</format> -->
+	</formats>
+
+	<includeBaseDirectory>false</includeBaseDirectory>
+
+	<dependencySets>
+		<dependencySet>
+			<unpack>false</unpack>
+			<scope>runtime</scope>
+			<outputDirectory>aste/lib</outputDirectory>
+			<includes>
+				<include>*:*</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+
+	<fileSets>
+	
+		<fileSet>
+			<filtered>true</filtered>
+			<directory>conf/</directory>
+			<outputDirectory>aste/conf</outputDirectory>
+			<includes>
+				<include>log4j.xml</include>
+				<include>config-test.properties</include>
+				<include>jWebSocket.xml</include>
+				<include>config.xml</include>
+			</includes>
+		</fileSet>
+
+		<fileSet>
+			<filtered>true</filtered>
+			<directory>bin/</directory>
+			<outputDirectory>aste/bin</outputDirectory>
+			<includes>
+				<include>fantapazz-aste.pl</include>
+			</includes>
+		</fileSet>
+
+	</fileSets>
+
+</assembly>

@@ -1,0 +1,358 @@
+<html>
+	<head>
+	
+		<style type="text/css" title="currentStyle">
+			@import "res/css/demo_page.css";
+			@import "res/css/demo_table.css";
+		</style>
+
+		<style type="text/css">
+		 	@import "res/css/themes/base/jquery.ui.all.css";
+		</style>
+		
+		<script type="text/javascript" src="res/js/jWebSocket.js"></script>
+				
+		<script type="text/javascript" src="res/js/asta-timer.js"></script>
+		<script type="text/javascript" src="res/js/asta-connector.js"></script>
+		<script type="text/javascript" src="res/js/asta-connection.js"></script>
+
+		<script type="text/javascript" src="res/js/jquery.js"></script>
+		<script type="text/javascript" src="res/js/jquery.dataTables.js"></script>
+		
+		<script src="res/js/ui/jquery.ui.core.js"></script>
+		<script src="res/js/ui/jquery.ui.widget.js"></script>
+		<script src="res/js/ui/jquery.ui.mouse.js"></script>
+		<script src="res/js/ui/jquery.ui.draggable.js"></script>
+		<script src="res/js/ui/jquery.ui.position.js"></script>
+		<script src="res/js/ui/jquery.ui.resizable.js"></script>
+		<script src="res/js/ui/jquery.ui.dialog.js"></script>		
+		<script src="res/js/ui/jquery.ui.progressbar.js"></script>
+				
+		<script type="text/javascript">
+		
+		function AstaGUI() {
+		
+			this.log = function(text) {
+				// alert(text);
+			}
+			
+		}
+
+		var oAsteTable;
+		var selectedAsta = null;
+		var clientID;
+		var serverPort = 0;
+		var currentSquadraID;
+		
+		var fantapazzConnector = new FantapazzConnector();
+		
+		var astaGUI = new AstaGUI();
+		
+		// Connection with asta server			
+		var astaConnection = new AstaConnection("org.jWebSocket.plugins.asta.controller", {
+			
+			OnOpen: function( aEvent ) {
+			
+				astaConnection.lWSC.startKeepAlive({ immediate: true, interval: 25000, echo: true });
+
+				var username = $( '#username' ).val();
+				var password = $( '#password' ).val();
+
+				var user = fantapazzConnector.getUserByPassword(username, password);
+								
+				if ( user.uid == null ) {
+					alert("Utente sconosciuto");
+					return;
+				}
+								
+				clientID = user.uid;
+				
+				astaConnection.sendMsg("it.fantapazz.asta.controller.protocol.MsgHelloAstaClient", {});	
+				
+			},
+							
+			OnClose: function( aEvent ) {
+
+			},
+							
+			receiveMsg: function(type, message) {
+				
+				if ( type == 'it.fantapazz.asta.controller.protocol.MsgHelloAstaServer' ) {
+				
+					$('#aste').dataTable().fnClearTable();
+
+					for ( i = 0; i < message.content.infos.length; i ++ ) {
+					
+						var asta = message.content.infos[i];
+						
+						var squadra = fantapazzConnector.getSquadraForAstaAndPlayer(asta, clientID);
+						
+						if ( squadra == null ) {
+							continue;
+						}
+					
+						$('#aste').dataTable().fnAddData([
+							asta.ID_Asta,
+							asta.ID_Lega,
+							JSON.stringify(asta.ID_fSquadre),
+							asta.status,
+							asta.port,
+							JSON.stringify(squadra),
+							squadra.Alias
+						]);
+						
+					}
+					
+					return;
+				
+				}
+
+				if ( type == 'it.fantapazz.asta.controller.protocol.MsgAstaUpdate') {
+
+					var found = -1;
+					var aTrs = oAsteTable.fnGetNodes();
+					
+					for ( var i = 0 ; i < aTrs.length ; i ++ ) {
+
+						var aData = oAsteTable.fnGetData(aTrs[i]);
+						if ( aData[0] == message.astaInfo.ID_Asta ) {
+							found = i;
+							break;
+						}
+					}
+					
+					var squadra = fantapazzConnector.getSquadraForAstaAndPlayer(message.astaInfo, clientID);
+					
+					if ( squadra != null ) {
+
+						if ( found == -1 ) {
+					
+							// alert("ADD: " + message.astaInfo);
+
+							$('#aste').dataTable().fnAddData([
+								message.astaInfo.ID_Asta,
+								message.astaInfo.ID_Lega,
+								JSON.stringify(message.astaInfo.ID_fSquadre),
+								message.astaInfo.status,
+								message.astaInfo.port,
+								JSON.stringify(squadra),
+								squadra.Alias
+							]);
+					
+						}
+						else {
+					
+							// alert("MODIFY: " + found + " - " + message.astaInfo);
+
+							$('#aste').dataTable().fnUpdate([
+								message.astaInfo.ID_Asta,
+								message.astaInfo.ID_Lega,
+								JSON.stringify(message.astaInfo.ID_fSquadre),
+								message.astaInfo.status,
+								message.astaInfo.port,
+								JSON.stringify(squadra),
+								squadra.Alias
+							],
+							found );
+					
+						}
+					
+						refreshSelectedAsta();
+
+						updateGUI();
+
+					}
+
+										
+/*
+					message.astaInfo.ID;
+					message.astaInfo.ID_Asta;					
+					message.astaInfo.ID_Lega;
+					message.astaInfo.port;
+					message.astaInfo.ID_fSquadre; // list
+					message.astaInfo.ID_Calciatori; // 
+					message.astaInfo.startDate; // yyyy-MM-dd HH:mm:ss
+					message.astaInfo.Status;
+					message.astaInfo.remainCalciatori;
+					message.astaInfo.startMoney;
+*/
+		
+				}
+				
+			}
+			
+		});
+
+		$(document).ready(function() {
+		
+			oAsteTable = $('#aste').dataTable();
+
+			/* Add a click handler to the rows - this could be used as a callback */
+			$("#aste tbody").click(function(event) {
+			
+				// Change class status
+				$(oAsteTable.fnSettings().aoData).each(function (){
+					$(this.nTr).removeClass('row_selected');
+				});
+				$(event.target.parentNode).addClass('row_selected');
+
+				var aTrs = oAsteTable.fnGetNodes();
+				for ( var i=0 ; i<aTrs.length ; i++ ) {
+					if ( $(aTrs[i]).hasClass('row_selected') ) {
+						var aData = oAsteTable.fnGetData(aTrs[i]);
+						selectedAsta = aData;
+						updateGUI();
+						break;
+					}
+				}
+				
+			});
+			
+			// Hide port
+			// oAsteTable.fnSetColumnVis( 4, false );			
+
+			// Hide squadra data
+			oAsteTable.fnSetColumnVis( 5, false );			
+
+			updateGUI();
+						
+		});
+				
+		function refreshSelectedAsta() {
+		
+			if ( selectedAsta == null ) {
+				return;
+			}
+
+			var aTrs = oAsteTable.fnGetNodes();
+			for ( var i = 0 ; i < aTrs.length ; i ++ ) {
+				var aData = oAsteTable.fnGetData(aTrs[i]);
+				if ( aData[0] == selectedAsta[0]) {
+					selectedAsta = aData;
+					break;
+				}
+			}
+
+		}
+
+		function updateGUI() {
+		
+			// alert(JSON.stringify(selectedAsta));
+			if ( selectedAsta == null ) {
+				$( '#enter').attr('disabled', 'disabled')
+				$( '#start').attr('disabled', 'disabled')
+				$( '#stop').attr('disabled', 'disabled')
+			}
+			else {
+				if ( selectedAsta[3] == 'NOT_STARTED' ) {
+					$('#stop').attr('disabled', 'disabled');
+					$('#enter').attr('disabled', 'disabled')
+				}
+				else {
+					$('#stop').removeAttr('disabled');
+					$('#enter').removeAttr('disabled');
+				}
+
+				if ( selectedAsta[3] == 'RUNNING' ) {
+					$('#start').attr('disabled', 'disabled');
+				}
+				else {
+					$('#start').removeAttr('disabled');
+				}
+			}
+		}
+
+		function doEnter() {
+		
+			if ( ! selectedAsta ) {
+				return;
+			}
+			
+			var astaID = selectedAsta[0];
+			var squadraID = JSON.parse(selectedAsta[5]).ID_fSquadra;
+			var port = selectedAsta[4];
+			
+			// Disconnect from controller
+			astaConnection.disconnect();
+			
+			window.location = "asta.html?port=" + port + "&clientID=" + squadraID + "&astaID=" + astaID;
+			
+		}
+		
+		function doStart() {
+			if ( ! selectedAsta ) {
+				return;
+			}
+			var astaID = selectedAsta[0];
+			astaConnection.sendMsg("it.fantapazz.asta.controller.protocol.MsgAstaRun", { astaID: astaID });
+		}
+		
+		function doStop(astaID) {
+			if ( ! selectedAsta ) {
+				return;
+			}
+			var astaID = selectedAsta[0];
+			astaConnection.sendMsg("it.fantapazz.asta.controller.protocol.MsgAstaStop", { astaID: astaID });
+		}
+		
+		function testButton() {
+			var url = "http://localhost/~mastrogiovannim/websocket/proxy.php?mode=native&url=http%3A//www.beta.fantapazz.com//servizi/fantacalcio/asta/login/%3Fuser%3Dmichele%26pass%3Dpippo80%26token%3D69222d343f634e55796a54687d553c786f637e7a5a55757d6f72293328%26random%3D0.565731278853491";
+			
+			$.ajax({
+				url: url,
+				// data: data,
+  				// dataType: dataType,
+	  			success: function(data, textStatus, jqXHR) {
+  					var text = jqXHR.responseText.replace(/\\\'/g, "\'");
+  					ret = JSON.parse(text);
+	  				alert(ret);
+
+					/*	  				
+  					alert("getUser ERROR");
+	  				alert("Success");
+	  				*/
+	  			}
+			});
+		}
+				
+		</script>
+		
+	</head>
+<body>
+
+	<h1>Login</h1>
+	
+	<input type="button" value="Test" onclick="testButton();" />
+	
+	<form>
+		Username: <input type="text" name="username" id="username" value="michele" /><br/>
+		Password: <input type="password" name="password" id="password" value="pippo80" /><br/>
+		<input type="button" value="Entra" onclick="astaConnection.connect();" />
+	</form>
+
+	<h1>Aste online</h1>
+		
+	<form>
+		<input type="button" id="enter" value="Entra nell'asta" onclick="doEnter();" /><br/>
+		<input type="button" id="start" value="Avvia asta" onclick="doStart();" /><br/>
+		<input type="button" id="stop" value="Ferma asta" onclick="doStop();" /><br/>
+	</form>
+
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="aste">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>ID Lega</th>
+				<th>Squadre</th>
+				<th>Stato</th>
+				<th>Porta</th>
+				<th>Squadra</th>
+				<th>Nome Squadra</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
+</body>
+</html>
