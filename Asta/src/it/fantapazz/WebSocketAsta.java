@@ -18,7 +18,9 @@ public class WebSocketAsta {
 		
 		// if not loaded by jWebSocket.xml config file...
 	    TokenServer lServer = (TokenServer) JWebSocketFactory.getServer("ts0");
+	    
 	    WebSocketEngine engine = JWebSocketFactory.getEngine();
+	    
 	    TokenPlugInChain chain = lServer.getPlugInChain();
 	    AstaControllerPlugin plugin = new AstaControllerPlugin();
 	    chain.addPlugIn(plugin);

@@ -7,10 +7,9 @@ import it.fantapazz.connector.bean.CalciatoreComm;
 import it.fantapazz.connector.bean.LegaComm;
 import it.fantapazz.connector.bean.SquadraComm;
 import it.fantapazz.connector.bean.UserComm;
-import it.fantapazz.connector.cache.Cache;
 import it.fantapazz.connector.cache.ObjectCache;
 import it.fantapazz.utility.FilterInputStream;
-import it.fantapazz.utility.PrintStream;
+import it.fantapazz.utility.URLConnectionInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -407,7 +406,7 @@ public class FantapazzConnector implements ConnectorI {
 		if ( ! useCache ) {
 			url += "&r=" + new Random().nextLong();
 		}
-		return new FilterInputStream(Cache.instance().read(url, useCache));
+		return new FilterInputStream(new URLConnectionInputStream(url));
 	}
 	
 	private void ensureCalciatori() throws ConnectionException {
