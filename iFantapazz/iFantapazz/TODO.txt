@@ -1,0 +1,18 @@
+
+TODO
+
+- Verificare che la scelta dei panchinari sia corretta e sia comprensibile visivamente
+(array riserve)
+
+- Mettere la scelta della formazione con una combo a comparsa
+
+- Mettere i banner pubblicitari
+
+DONE
+
+- Problemi di crash quando si esce e si rientra in una videata.
+Provare con il mettere tutto il viewDidAppear anche fetch e fare table.update
+
+
+
+
