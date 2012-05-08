@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Calciatore" syncable="YES">
+        <attribute name="amm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="calciatore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cartellini" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="club" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clubabbr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="convocato" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dubbio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="esp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="golfa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="golsu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gsq" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iconatitolarita" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_calciatore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_club" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_fmercato" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_ruolo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ispolitico" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mv" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="other" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="partita" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="presenze" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prezzo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quotazione" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ruolo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sq" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stato" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testoind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tit" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Squadra" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Calciatore" positionX="160" positionY="192" width="128" height="540"/>
+        <element name="Squadra" positionX="160" positionY="192" width="128" height="75"/>
+    </elements>
+</model>
