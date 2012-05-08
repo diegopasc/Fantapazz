@@ -29,8 +29,11 @@
 		<property name="proxyEnabled" value="false" />
 		
 		<property name="proxyHost" value="proxy.eng.it" />
+		
 		<property name="proxyPort" value="3128" />
+		
 		<property name="proxyUsername" value="micmastr" />
+		
 		<property name="proxyPassword" value="apriti80" />
 
 	</bean>
