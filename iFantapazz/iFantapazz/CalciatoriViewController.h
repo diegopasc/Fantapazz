@@ -14,6 +14,7 @@
 @interface CalciatoriViewController : BaseFetchViewController <ConnectorDelegate>
 {
     NSDictionary * formazioni;
+    
     NSInteger selectedFormazione;
     
     NSString * id_giornata;
@@ -24,11 +25,8 @@
     NSInteger * dueRiserve;
     NSInteger * selectedTitolari;
     NSInteger * selectedRiserve;
-
 }
 
 - (IBAction) send:(id) sender;
-
-- (void) validate;
 
 @end

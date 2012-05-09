@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E80BECB2155A5D3B00FC9572 /* PlayerAssignmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */; };
 		E81BF38614FE2B3200560B80 /* LoginCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = E81BF38514FE2B3200560B80 /* LoginCredentials.m */; };
 		E87D74871500ED1700523248 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87D74861500ED1700523248 /* BaseViewController.m */; };
 		E88BEA1C150125F200595BC9 /* freccetta_stato_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E88BEA11150125F200595BC9 /* freccetta_stato_0.png */; };
@@ -42,7 +43,6 @@
 		E88BEB261501339500595BC9 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E88BEB1F1501339500595BC9 /* ASINetworkQueue.m */; };
 		E88BEB29150133F500595BC9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E88BEB28150133F400595BC9 /* Reachability.m */; };
 		E892B3C014FEAE5C0022B994 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = E892B3BF14FEAE5C0022B994 /* Connector.m */; };
-		E892B3C614FEB3E30022B994 /* SquadreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E892B3C514FEB3E30022B994 /* SquadreViewController.m */; };
 		E8A8416D1505F01D00A9D20C /* BaseFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A8416C1505F01C00A9D20C /* BaseFetchViewController.m */; };
 		E8A84171150766AA00A9D20C /* Cartellini.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A8416F150766A900A9D20C /* Cartellini.png */; };
 		E8A84172150766AA00A9D20C /* Gol.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A84170150766A900A9D20C /* Gol.png */; };
@@ -71,9 +71,14 @@
 		E8AAF2CB14FBC44300799B61 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2CA14FBC44200799B61 /* LoginViewController.m */; };
 		E8AAF2D114FBD37C00799B61 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */; };
 		E8C68A851507E71A00B52D47 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C68A841507E71A00B52D47 /* body.png */; };
+		E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183A1559490100C00D94 /* SquadreViewController1.m */; };
+		E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */; };
+		E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8184315596E1000C00D94 /* MenuTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E80BECB0155A5D3B00FC9572 /* PlayerAssignmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAssignmentController.h; sourceTree = "<group>"; };
+		E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAssignmentController.m; sourceTree = "<group>"; };
 		E81BF38414FE2B3200560B80 /* LoginCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCredentials.h; sourceTree = "<group>"; };
 		E81BF38514FE2B3200560B80 /* LoginCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCredentials.m; sourceTree = "<group>"; };
 		E81BF38714FE2C0B00560B80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -90,10 +95,10 @@
 		E88BEA19150125F200595BC9 /* titolare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titolare.png; sourceTree = "<group>"; };
 		E88BEA1A150125F200595BC9 /* tribuna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tribuna.png; sourceTree = "<group>"; };
 		E88BEA1B150125F200595BC9 /* voto-politico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voto-politico.png"; sourceTree = "<group>"; };
-		E88BEAD315012D8F00595BC9 /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
-		E88BEAD415012D8F00595BC9 /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
-		E88BEAD515012D8F00595BC9 /* OHAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHAttributedLabel.h; sourceTree = "<group>"; };
-		E88BEAD615012D8F00595BC9 /* OHAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHAttributedLabel.m; sourceTree = "<group>"; };
+		E88BEAD315012D8F00595BC9 /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Attributes.h"; path = "Core/NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
+		E88BEAD415012D8F00595BC9 /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+Attributes.m"; path = "Core/NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
+		E88BEAD515012D8F00595BC9 /* OHAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OHAttributedLabel.h; path = Core/OHAttributedLabel.h; sourceTree = "<group>"; };
+		E88BEAD615012D8F00595BC9 /* OHAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OHAttributedLabel.m; path = Core/OHAttributedLabel.m; sourceTree = "<group>"; };
 		E88BEADD15012F7800595BC9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		E88BEADF15012FAE00595BC9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E88BEAE115012FBF00595BC9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -133,8 +138,6 @@
 		E88BEB28150133F400595BC9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E892B3BE14FEAE5C0022B994 /* Connector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
 		E892B3BF14FEAE5C0022B994 /* Connector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connector.m; sourceTree = "<group>"; };
-		E892B3C414FEB3E30022B994 /* SquadreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquadreViewController.h; sourceTree = "<group>"; };
-		E892B3C514FEB3E30022B994 /* SquadreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquadreViewController.m; sourceTree = "<group>"; };
 		E8A8416B1505F01C00A9D20C /* BaseFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFetchViewController.h; sourceTree = "<group>"; };
 		E8A8416C1505F01C00A9D20C /* BaseFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFetchViewController.m; sourceTree = "<group>"; };
 		E8A8416F150766A900A9D20C /* Cartellini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cartellini.png; sourceTree = "<group>"; };
@@ -175,6 +178,12 @@
 		E8AAF2CF14FBD37B00799B61 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E8C68A841507E71A00B52D47 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
+		E8E818391559490100C00D94 /* SquadreViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquadreViewController1.h; sourceTree = "<group>"; };
+		E8E8183A1559490100C00D94 /* SquadreViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquadreViewController1.m; sourceTree = "<group>"; };
+		E8E8183C1559504000C00D94 /* CalciatoriViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalciatoriViewController1.h; sourceTree = "<group>"; };
+		E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalciatoriViewController1.m; sourceTree = "<group>"; };
+		E8E8184215596E0F00C00D94 /* MenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTabBarController.h; sourceTree = "<group>"; };
+		E8E8184315596E1000C00D94 /* MenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,17 +211,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E88BEA2B15012C5A00595BC9 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E88BEAD315012D8F00595BC9 /* NSAttributedString+Attributes.h */,
-				E88BEAD415012D8F00595BC9 /* NSAttributedString+Attributes.m */,
-				E88BEAD515012D8F00595BC9 /* OHAttributedLabel.h */,
-				E88BEAD615012D8F00595BC9 /* OHAttributedLabel.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		E88BEAFC1501337800595BC9 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,21 +254,35 @@
 			path = ASI;
 			sourceTree = "<group>";
 		};
+		E8A7A6B2155A5883004C54A8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E8AAF2C914FBC44200799B61 /* LoginViewController.h */,
+				E8AAF2CA14FBC44200799B61 /* LoginViewController.m */,
+				E8E818391559490100C00D94 /* SquadreViewController1.h */,
+				E8E8183A1559490100C00D94 /* SquadreViewController1.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		E8A7A6B4155A589B004C54A8 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E8E8184215596E0F00C00D94 /* MenuTabBarController.h */,
+				E8E8184315596E1000C00D94 /* MenuTabBarController.m */,
+				E80BECB0155A5D3B00FC9572 /* PlayerAssignmentController.h */,
+				E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */,
+				E8E8183C1559504000C00D94 /* CalciatoriViewController1.h */,
+				E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
 		E8AAF23914F8117B00799B61 = {
 			isa = PBXGroup;
 			children = (
 				E8A8417E1507AAB000A9D20C /* TODO.txt */,
 				E88BEAE71501303C00595BC9 /* libxml2.dylib */,
-				E88BEAE515012FCB00595BC9 /* AVFoundation.framework */,
-				E88BEAE315012FC600595BC9 /* MediaPlayer.framework */,
-				E88BEAE115012FBF00595BC9 /* QuartzCore.framework */,
-				E88BEADF15012FAE00595BC9 /* ImageIO.framework */,
-				E88BEADD15012F7800595BC9 /* CoreText.framework */,
-				E8AAF2B814FB818C00799B61 /* CoreData.framework */,
-				E8AAF2B614FB7D1600799B61 /* libz.dylib */,
-				E8AAF29A14F8F57800799B61 /* SystemConfiguration.framework */,
-				E8AAF29814F8F56F00799B61 /* CFNetwork.framework */,
-				E8AAF29614F8F56800799B61 /* MobileCoreServices.framework */,
 				E8AAF24E14F8117C00799B61 /* iFantapazz */,
 				E8AAF24714F8117C00799B61 /* Frameworks */,
 				E8AAF24514F8117C00799B61 /* Products */,
@@ -288,6 +300,16 @@
 		E8AAF24714F8117C00799B61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8AAF2B614FB7D1600799B61 /* libz.dylib */,
+				E88BEAE515012FCB00595BC9 /* AVFoundation.framework */,
+				E88BEAE315012FC600595BC9 /* MediaPlayer.framework */,
+				E88BEAE115012FBF00595BC9 /* QuartzCore.framework */,
+				E88BEADF15012FAE00595BC9 /* ImageIO.framework */,
+				E88BEADD15012F7800595BC9 /* CoreText.framework */,
+				E8AAF2B814FB818C00799B61 /* CoreData.framework */,
+				E8AAF29A14F8F57800799B61 /* SystemConfiguration.framework */,
+				E8AAF29814F8F56F00799B61 /* CFNetwork.framework */,
+				E8AAF29614F8F56800799B61 /* MobileCoreServices.framework */,
 				E8AAF24814F8117C00799B61 /* UIKit.framework */,
 				E8AAF24A14F8117C00799B61 /* Foundation.framework */,
 				E8AAF24C14F8117C00799B61 /* CoreGraphics.framework */,
@@ -299,34 +321,26 @@
 			isa = PBXGroup;
 			children = (
 				E8A8417C15076BDE00A9D20C /* Background.png */,
-				E8A8417615076BCA00A9D20C /* UIImage+Additions.h */,
-				E8A8417715076BCB00A9D20C /* UIImage+Additions.m */,
-				E8A8417815076BCB00A9D20C /* UITableViewController+Additions.h */,
-				E8A8417915076BCC00A9D20C /* UITableViewController+Additions.m */,
-				E88BEB101501339300595BC9 /* ASI */,
-				E88BEAFC1501337800595BC9 /* JSON */,
-				E88BEA2B15012C5A00595BC9 /* Core */,
 				E81BF38714FE2C0B00560B80 /* Constants.h */,
-				E8AAF2CF14FBD37B00799B61 /* MBProgressHUD.h */,
-				E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */,
-				E8AAF2C414FBBF4D00799B61 /* Resources */,
-				E8AAF28F14F8124A00799B61 /* Connector */,
-				E8AAF28B14F8120B00799B61 /* Additions */,
 				E8AAF2BA14FB81A700799B61 /* Model.xcdatamodeld */,
 				E8AAF25A14F8117D00799B61 /* MainStoryboard.storyboard */,
 				E8AAF25714F8117C00799B61 /* AppDelegate.h */,
 				E8AAF25814F8117D00799B61 /* AppDelegate.m */,
+				E8AAF24F14F8117C00799B61 /* Supporting Files */,
+				E8E818381559484600C00D94 /* Utilities */,
+				E88BEB101501339300595BC9 /* ASI */,
+				E88BEAFC1501337800595BC9 /* JSON */,
+				E8AAF28F14F8124A00799B61 /* Connector */,
+				E8AAF28B14F8120B00799B61 /* Additions */,
+				E8AAF2C414FBBF4D00799B61 /* Resources */,
+				E8A7A6B2155A5883004C54A8 /* Login */,
+				E8A7A6B4155A589B004C54A8 /* MainMenu */,
 				E87D74851500ED1700523248 /* BaseViewController.h */,
 				E87D74861500ED1700523248 /* BaseViewController.m */,
 				E8A8416B1505F01C00A9D20C /* BaseFetchViewController.h */,
 				E8A8416C1505F01C00A9D20C /* BaseFetchViewController.m */,
-				E8AAF2C914FBC44200799B61 /* LoginViewController.h */,
-				E8AAF2CA14FBC44200799B61 /* LoginViewController.m */,
-				E892B3C414FEB3E30022B994 /* SquadreViewController.h */,
-				E892B3C514FEB3E30022B994 /* SquadreViewController.m */,
 				E8AAF29C14F8F9D000799B61 /* CalciatoriViewController.h */,
 				E8AAF29D14F8F9D000799B61 /* CalciatoriViewController.m */,
-				E8AAF24F14F8117C00799B61 /* Supporting Files */,
 			);
 			path = iFantapazz;
 			sourceTree = "<group>";
@@ -345,6 +359,10 @@
 		E8AAF28B14F8120B00799B61 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				E8A8417615076BCA00A9D20C /* UIImage+Additions.h */,
+				E8A8417715076BCB00A9D20C /* UIImage+Additions.m */,
+				E8A8417815076BCB00A9D20C /* UITableViewController+Additions.h */,
+				E8A8417915076BCC00A9D20C /* UITableViewController+Additions.m */,
 				E8AAF28C14F8122A00799B61 /* NSString+Additions.h */,
 				E8AAF28D14F8122A00799B61 /* NSString+Additions.m */,
 				E8AAF28814F8120500799B61 /* NSData+Base64.h */,
@@ -387,6 +405,19 @@
 				E8AAF2C614FBBF9F00799B61 /* squalificati.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		E8E818381559484600C00D94 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E88BEAD315012D8F00595BC9 /* NSAttributedString+Attributes.h */,
+				E88BEAD415012D8F00595BC9 /* NSAttributedString+Attributes.m */,
+				E88BEAD515012D8F00595BC9 /* OHAttributedLabel.h */,
+				E88BEAD615012D8F00595BC9 /* OHAttributedLabel.m */,
+				E8AAF2CF14FBD37B00799B61 /* MBProgressHUD.h */,
+				E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,7 +510,6 @@
 				E8AAF2D114FBD37C00799B61 /* MBProgressHUD.m in Sources */,
 				E81BF38614FE2B3200560B80 /* LoginCredentials.m in Sources */,
 				E892B3C014FEAE5C0022B994 /* Connector.m in Sources */,
-				E892B3C614FEB3E30022B994 /* SquadreViewController.m in Sources */,
 				E87D74871500ED1700523248 /* BaseViewController.m in Sources */,
 				E88BEAD715012D8F00595BC9 /* NSAttributedString+Attributes.m in Sources */,
 				E88BEAD815012D8F00595BC9 /* OHAttributedLabel.m in Sources */,
@@ -499,6 +529,10 @@
 				E8A8416D1505F01D00A9D20C /* BaseFetchViewController.m in Sources */,
 				E8A8417A15076BCD00A9D20C /* UIImage+Additions.m in Sources */,
 				E8A8417B15076BCD00A9D20C /* UITableViewController+Additions.m in Sources */,
+				E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */,
+				E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */,
+				E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */,
+				E80BECB2155A5D3B00FC9572 /* PlayerAssignmentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +611,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/DTCoreText-euowgponxrkvvnckcpvmbaechsic/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iFantapazz/iFantapazz-Prefix.pch";
@@ -603,7 +636,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/DTCoreText-euowgponxrkvvnckcpvmbaechsic/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iFantapazz/iFantapazz-Prefix.pch";

@@ -10,7 +10,7 @@
 #import "LoginCredentials.h"
 #import "NSString+SBJSON.h"
 #import "Constants.h"
-#import "SquadreViewController.h"
+#import "SquadreViewController1.h"
 
 #import "UITableViewController+Additions.h"
 
@@ -104,7 +104,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+        
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -116,7 +116,7 @@
     
     self.title = @"iFantapazz";
     
-    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"body.png" ]];
+    // [ self setBackgroundOfTableView:[ UIImage imageNamed:@"body.png" ]];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
