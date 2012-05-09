@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerAssignmentController.h"
 #import "Connector.h"
 #import "MBProgressHUD.h"
 
 @interface MenuTabBarController : UITabBarController <ConnectorDelegate>
 {
+    BOOL needsReload;
+    
     MBProgressHUD * HUD;
 
     NSDictionary * formazioni;
@@ -22,15 +25,14 @@
     NSArray * ruoliPanchinari;
     
     NSMutableArray * players;
-    
-    NSInteger * dueTitolari;
-    NSInteger * dueRiserve;
-    NSInteger * selectedTitolari;
-    NSInteger * selectedRiserve;
 }
 
-- (void) loadData;
+- (NSArray*) selectedFormatione:(PlayerAssignmentController*) controller;
 
 @property (nonatomic, retain) NSMutableArray * players;
+
+@property (nonatomic, assign) BOOL needsReload;
+
+- (IBAction) send:(id)sender;
 
 @end

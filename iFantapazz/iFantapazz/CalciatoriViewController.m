@@ -152,7 +152,7 @@
                 // 4 = quel calciatore deve essere un attaccante
                 // 0 = quel calciatore non ha nessun vincolo di ruolo
                 
-                int type = [[ ruoliPanchinari objectAtIndex:indexRiserva ] intValue ];
+                // int type = [[ ruoliPanchinari objectAtIndex:indexRiserva ] intValue ];
                 indexRiserva ++;
                 
                 if ( [[ calciatore valueForKey:@"ruolo" ] isEqualToString:@"P" ]) {

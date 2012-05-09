@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E80BECB2155A5D3B00FC9572 /* PlayerAssignmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */; };
 		E81BF38614FE2B3200560B80 /* LoginCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = E81BF38514FE2B3200560B80 /* LoginCredentials.m */; };
 		E87D74871500ED1700523248 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87D74861500ED1700523248 /* BaseViewController.m */; };
 		E88BEA1C150125F200595BC9 /* freccetta_stato_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E88BEA11150125F200595BC9 /* freccetta_stato_0.png */; };
@@ -71,12 +72,13 @@
 		E8AAF2D114FBD37C00799B61 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */; };
 		E8C68A851507E71A00B52D47 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C68A841507E71A00B52D47 /* body.png */; };
 		E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183A1559490100C00D94 /* SquadreViewController1.m */; };
-		E8E8183E1559504000C00D94 /* CalcialtoriViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183D1559504000C00D94 /* CalcialtoriViewController1.m */; };
-		E8E818411559511D00C00D94 /* CalciatoriSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E818401559511D00C00D94 /* CalciatoriSelectionController.m */; };
+		E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */; };
 		E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8184315596E1000C00D94 /* MenuTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E80BECB0155A5D3B00FC9572 /* PlayerAssignmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAssignmentController.h; sourceTree = "<group>"; };
+		E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAssignmentController.m; sourceTree = "<group>"; };
 		E81BF38414FE2B3200560B80 /* LoginCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCredentials.h; sourceTree = "<group>"; };
 		E81BF38514FE2B3200560B80 /* LoginCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCredentials.m; sourceTree = "<group>"; };
 		E81BF38714FE2C0B00560B80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -178,10 +180,8 @@
 		E8C68A841507E71A00B52D47 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 		E8E818391559490100C00D94 /* SquadreViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquadreViewController1.h; sourceTree = "<group>"; };
 		E8E8183A1559490100C00D94 /* SquadreViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquadreViewController1.m; sourceTree = "<group>"; };
-		E8E8183C1559504000C00D94 /* CalcialtoriViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcialtoriViewController1.h; sourceTree = "<group>"; };
-		E8E8183D1559504000C00D94 /* CalcialtoriViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcialtoriViewController1.m; sourceTree = "<group>"; };
-		E8E8183F1559511C00C00D94 /* CalciatoriSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalciatoriSelectionController.h; sourceTree = "<group>"; };
-		E8E818401559511D00C00D94 /* CalciatoriSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalciatoriSelectionController.m; sourceTree = "<group>"; };
+		E8E8183C1559504000C00D94 /* CalciatoriViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalciatoriViewController1.h; sourceTree = "<group>"; };
+		E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalciatoriViewController1.m; sourceTree = "<group>"; };
 		E8E8184215596E0F00C00D94 /* MenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTabBarController.h; sourceTree = "<group>"; };
 		E8E8184315596E1000C00D94 /* MenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,6 +254,30 @@
 			path = ASI;
 			sourceTree = "<group>";
 		};
+		E8A7A6B2155A5883004C54A8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E8AAF2C914FBC44200799B61 /* LoginViewController.h */,
+				E8AAF2CA14FBC44200799B61 /* LoginViewController.m */,
+				E8E818391559490100C00D94 /* SquadreViewController1.h */,
+				E8E8183A1559490100C00D94 /* SquadreViewController1.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		E8A7A6B4155A589B004C54A8 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E8E8184215596E0F00C00D94 /* MenuTabBarController.h */,
+				E8E8184315596E1000C00D94 /* MenuTabBarController.m */,
+				E80BECB0155A5D3B00FC9572 /* PlayerAssignmentController.h */,
+				E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */,
+				E8E8183C1559504000C00D94 /* CalciatoriViewController1.h */,
+				E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
 		E8AAF23914F8117B00799B61 = {
 			isa = PBXGroup;
 			children = (
@@ -276,13 +300,13 @@
 		E8AAF24714F8117C00799B61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8AAF2B614FB7D1600799B61 /* libz.dylib */,
 				E88BEAE515012FCB00595BC9 /* AVFoundation.framework */,
 				E88BEAE315012FC600595BC9 /* MediaPlayer.framework */,
 				E88BEAE115012FBF00595BC9 /* QuartzCore.framework */,
 				E88BEADF15012FAE00595BC9 /* ImageIO.framework */,
 				E88BEADD15012F7800595BC9 /* CoreText.framework */,
 				E8AAF2B814FB818C00799B61 /* CoreData.framework */,
-				E8AAF2B614FB7D1600799B61 /* libz.dylib */,
 				E8AAF29A14F8F57800799B61 /* SystemConfiguration.framework */,
 				E8AAF29814F8F56F00799B61 /* CFNetwork.framework */,
 				E8AAF29614F8F56800799B61 /* MobileCoreServices.framework */,
@@ -298,6 +322,10 @@
 			children = (
 				E8A8417C15076BDE00A9D20C /* Background.png */,
 				E81BF38714FE2C0B00560B80 /* Constants.h */,
+				E8AAF2BA14FB81A700799B61 /* Model.xcdatamodeld */,
+				E8AAF25A14F8117D00799B61 /* MainStoryboard.storyboard */,
+				E8AAF25714F8117C00799B61 /* AppDelegate.h */,
+				E8AAF25814F8117D00799B61 /* AppDelegate.m */,
 				E8AAF24F14F8117C00799B61 /* Supporting Files */,
 				E8E818381559484600C00D94 /* Utilities */,
 				E88BEB101501339300595BC9 /* ASI */,
@@ -305,26 +333,14 @@
 				E8AAF28F14F8124A00799B61 /* Connector */,
 				E8AAF28B14F8120B00799B61 /* Additions */,
 				E8AAF2C414FBBF4D00799B61 /* Resources */,
-				E8AAF2BA14FB81A700799B61 /* Model.xcdatamodeld */,
-				E8AAF25A14F8117D00799B61 /* MainStoryboard.storyboard */,
-				E8AAF25714F8117C00799B61 /* AppDelegate.h */,
-				E8AAF25814F8117D00799B61 /* AppDelegate.m */,
+				E8A7A6B2155A5883004C54A8 /* Login */,
+				E8A7A6B4155A589B004C54A8 /* MainMenu */,
 				E87D74851500ED1700523248 /* BaseViewController.h */,
 				E87D74861500ED1700523248 /* BaseViewController.m */,
 				E8A8416B1505F01C00A9D20C /* BaseFetchViewController.h */,
 				E8A8416C1505F01C00A9D20C /* BaseFetchViewController.m */,
-				E8AAF2C914FBC44200799B61 /* LoginViewController.h */,
-				E8AAF2CA14FBC44200799B61 /* LoginViewController.m */,
-				E8E818391559490100C00D94 /* SquadreViewController1.h */,
-				E8E8183A1559490100C00D94 /* SquadreViewController1.m */,
 				E8AAF29C14F8F9D000799B61 /* CalciatoriViewController.h */,
 				E8AAF29D14F8F9D000799B61 /* CalciatoriViewController.m */,
-				E8E8183C1559504000C00D94 /* CalcialtoriViewController1.h */,
-				E8E8183D1559504000C00D94 /* CalcialtoriViewController1.m */,
-				E8E8183F1559511C00C00D94 /* CalciatoriSelectionController.h */,
-				E8E818401559511D00C00D94 /* CalciatoriSelectionController.m */,
-				E8E8184215596E0F00C00D94 /* MenuTabBarController.h */,
-				E8E8184315596E1000C00D94 /* MenuTabBarController.m */,
 			);
 			path = iFantapazz;
 			sourceTree = "<group>";
@@ -514,9 +530,9 @@
 				E8A8417A15076BCD00A9D20C /* UIImage+Additions.m in Sources */,
 				E8A8417B15076BCD00A9D20C /* UITableViewController+Additions.m in Sources */,
 				E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */,
-				E8E8183E1559504000C00D94 /* CalcialtoriViewController1.m in Sources */,
-				E8E818411559511D00C00D94 /* CalciatoriSelectionController.m in Sources */,
+				E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */,
 				E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */,
+				E80BECB2155A5D3B00FC9572 /* PlayerAssignmentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +611,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/DTCoreText-euowgponxrkvvnckcpvmbaechsic/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iFantapazz/iFantapazz-Prefix.pch";
@@ -621,7 +636,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/DTCoreText-euowgponxrkvvnckcpvmbaechsic/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iFantapazz/iFantapazz-Prefix.pch";

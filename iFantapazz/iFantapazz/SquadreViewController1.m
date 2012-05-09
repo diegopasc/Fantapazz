@@ -9,6 +9,7 @@
 #import "SquadreViewController1.h"
 #import "NSString+SBJSON.h"
 #import "UITableViewController+Additions.h"
+#import "MenuTabBarController.h"
 #import "Constants.h"
 
 @implementation SquadreViewController1
@@ -232,6 +233,12 @@
 */
 
 #pragma mark - Table view delegate
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MenuTabBarController * controller = (MenuTabBarController*) segue.destinationViewController;
+    controller.needsReload = YES;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
