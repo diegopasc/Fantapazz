@@ -59,10 +59,10 @@
     return [ self.managedObjectContext executeFetchRequest:fetchRequest error:& error ];
 }
 
-- (void) loadValues
-{
-    
-}
+//- (void) loadValues
+//{
+//    
+//}
 
 /*
 - (void) validate
@@ -440,7 +440,7 @@
         
         [ self saveContext:insertContext ];
         
-        [ self loadValues ];
+        // [ self loadValues ];
 
 	}
 	@catch (NSException * e) {
