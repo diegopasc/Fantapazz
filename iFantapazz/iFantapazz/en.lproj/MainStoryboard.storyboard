@@ -5,6 +5,88 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
     </dependencies>
     <scenes>
+        <scene sceneID="bZ4-OR-p02">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gbv-Ya-Cq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="dnR-U8-CLz" customClass="RosaViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2cU-lc-apB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="45" id="NlV-Xk-hyu">
+                                <rect key="frame" x="0.0" y="46" width="320" height="47"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" id="jVe-Qu-bKY">
+                                            <rect key="frame" x="1" y="15" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" id="IhR-a0-kaQ">
+                                            <rect key="frame" x="277" y="15" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Andujar" lineBreakMode="tailTruncation" minimumFontSize="10" id="7h0-XE-g03">
+                                            <rect key="frame" x="25" y="13" width="86" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Cat-Rom" lineBreakMode="clip" adjustsFontSizeToFit="NO" minimumFontSize="10" id="ObZ-oY-Adm" customClass="OHAttributedLabel">
+                                            <rect key="frame" x="115" y="13" width="50" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="2" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="6Ow-FU-kvG">
+                                            <rect key="frame" x="204" y="13" width="11" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="6.08" lineBreakMode="tailTruncation" minimumFontSize="10" id="npd-Of-HAs">
+                                            <rect key="frame" x="173" y="13" width="23" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="19" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="dg3-Nu-YDX">
+                                            <rect key="frame" x="236" y="13" width="16" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" image="Cartellini.png" id="a1G-b5-CP9">
+                                            <rect key="frame" x="215" y="12" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" image="Gol.png" id="b2Z-9e-fMp">
+                                            <rect key="frame" x="252" y="11" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dnR-U8-CLz" id="RhT-Zb-Nee"/>
+                            <outlet property="delegate" destination="dnR-U8-CLz" id="Dwc-SO-RrI"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" tag="3" title="Rosa" id="w6L-NS-Lyb"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2372" y="-3613"/>
+        </scene>
         <scene sceneID="Ikq-x1-yIO">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXF-3X-3xY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,6 +468,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="dnR-U8-CLz" kind="relationship" relationship="viewControllers" id="6qN-9E-yA8"/>
                         <segue destination="A4v-nB-3J5" kind="relationship" relationship="viewControllers" id="GfS-vv-RCI"/>
                         <segue destination="QLu-sb-raQ" kind="relationship" relationship="viewControllers" id="8B3-h8-uLg"/>
                         <segue destination="54C-mK-EaR" kind="relationship" relationship="viewControllers" id="oXf-cw-WzL"/>
@@ -855,6 +938,9 @@
         </class>
         <class className="PlayerAssignmentController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerAssignmentController.h"/>
+        </class>
+        <class className="RosaViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RosaViewController.h"/>
         </class>
         <class className="SquadreViewController1" superclassName="BaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadreViewController1.h"/>

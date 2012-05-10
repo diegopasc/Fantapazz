@@ -12,6 +12,7 @@
 #import "NSObject+SBJSON.h"
 #import "Constants.h"
 #import "FormazioneViewController.h"
+#import "RosaViewController.h"
 
 @implementation MenuTabBarController
 
@@ -39,6 +40,18 @@
             }
             
         }
+        if ( tag == 2 ) {
+            
+            id key = [[ formazioni allKeys ] objectAtIndex:selectedFormazione ];
+            NSString * formazione = [ formazioni valueForKey:key ];
+            controller.tabBarItem.badgeValue = formazione;
+            
+        }
+        if ( tag == 3 ) {
+            
+            controller.tabBarItem.badgeValue = [ NSString stringWithFormat:@"%d", [ self.players count ]];
+            
+        }
         
     }
 }
@@ -63,6 +76,21 @@
     FormazioneViewController * formazioneController = (FormazioneViewController*)[ self playerControllerWithTag:2 ];
     formazioneController.formazioni = formazioni;
     formazioneController.selectedFormazione = selectedFormazione;
+
+    // Rosa view controller
+    RosaViewController * rosaController = (RosaViewController*)[ self playerControllerWithTag:3 ];
+    
+    NSMutableArray * list = [[[ NSMutableArray alloc ] initWithCapacity:[ self.players count ]] autorelease ];
+    
+    [ list addObjectsFromArray:[ self.players filteredArrayUsingPredicate:[ NSPredicate predicateWithFormat:@"Ruolo = 'P'" ]]];
+    
+    [ list addObjectsFromArray:[ self.players filteredArrayUsingPredicate:[ NSPredicate predicateWithFormat:@"Ruolo = 'D'" ]]];
+    
+    [ list addObjectsFromArray:[ self.players filteredArrayUsingPredicate:[ NSPredicate predicateWithFormat:@"Ruolo = 'C'" ]]];
+    
+    [ list addObjectsFromArray:[ self.players filteredArrayUsingPredicate:[ NSPredicate predicateWithFormat:@"Ruolo = 'A'" ]]];
+    
+    rosaController.players = list;
     
     for ( int i = 0; i < [[ self viewControllers ] count ]; i ++ ) {
         UIViewController * controller = [[ self viewControllers ] objectAtIndex:i ];
