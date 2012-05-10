@@ -129,7 +129,7 @@
     
     self.clearsSelectionOnViewWillAppear = NO;
     
-    // [ self setBackgroundOfTableView:[ UIImage imageNamed:@"body.png" ]];
+    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 }
 
 - (void)viewDidUnload

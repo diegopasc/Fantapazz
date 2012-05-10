@@ -43,6 +43,10 @@
 		E88BEB261501339500595BC9 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E88BEB1F1501339500595BC9 /* ASINetworkQueue.m */; };
 		E88BEB29150133F500595BC9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E88BEB28150133F400595BC9 /* Reachability.m */; };
 		E892B3C014FEAE5C0022B994 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = E892B3BF14FEAE5C0022B994 /* Connector.m */; };
+		E89EC22D155AC888004B11CC /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = E89EC229155AC888004B11CC /* Background1.png */; };
+		E89EC22E155AC888004B11CC /* Background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E89EC22A155AC888004B11CC /* Background2.jpg */; };
+		E89EC22F155AC888004B11CC /* Background3.png in Resources */ = {isa = PBXBuildFile; fileRef = E89EC22B155AC888004B11CC /* Background3.png */; };
+		E89EC230155AC888004B11CC /* Background4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E89EC22C155AC888004B11CC /* Background4.jpg */; };
 		E8A8416D1505F01D00A9D20C /* BaseFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A8416C1505F01C00A9D20C /* BaseFetchViewController.m */; };
 		E8A84171150766AA00A9D20C /* Cartellini.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A8416F150766A900A9D20C /* Cartellini.png */; };
 		E8A84172150766AA00A9D20C /* Gol.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A84170150766A900A9D20C /* Gol.png */; };
@@ -71,6 +75,7 @@
 		E8AAF2CB14FBC44300799B61 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2CA14FBC44200799B61 /* LoginViewController.m */; };
 		E8AAF2D114FBD37C00799B61 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */; };
 		E8C68A851507E71A00B52D47 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C68A841507E71A00B52D47 /* body.png */; };
+		E8E3B363155BD096004DD395 /* FormazioneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E3B362155BD096004DD395 /* FormazioneViewController.m */; };
 		E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183A1559490100C00D94 /* SquadreViewController1.m */; };
 		E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */; };
 		E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8184315596E1000C00D94 /* MenuTabBarController.m */; };
@@ -138,6 +143,10 @@
 		E88BEB28150133F400595BC9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E892B3BE14FEAE5C0022B994 /* Connector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
 		E892B3BF14FEAE5C0022B994 /* Connector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connector.m; sourceTree = "<group>"; };
+		E89EC229155AC888004B11CC /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
+		E89EC22A155AC888004B11CC /* Background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background2.jpg; sourceTree = "<group>"; };
+		E89EC22B155AC888004B11CC /* Background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background3.png; sourceTree = "<group>"; };
+		E89EC22C155AC888004B11CC /* Background4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background4.jpg; sourceTree = "<group>"; };
 		E8A8416B1505F01C00A9D20C /* BaseFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFetchViewController.h; sourceTree = "<group>"; };
 		E8A8416C1505F01C00A9D20C /* BaseFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFetchViewController.m; sourceTree = "<group>"; };
 		E8A8416F150766A900A9D20C /* Cartellini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cartellini.png; sourceTree = "<group>"; };
@@ -178,6 +187,8 @@
 		E8AAF2CF14FBD37B00799B61 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E8C68A841507E71A00B52D47 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
+		E8E3B361155BD096004DD395 /* FormazioneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormazioneViewController.h; sourceTree = "<group>"; };
+		E8E3B362155BD096004DD395 /* FormazioneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormazioneViewController.m; sourceTree = "<group>"; };
 		E8E818391559490100C00D94 /* SquadreViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquadreViewController1.h; sourceTree = "<group>"; };
 		E8E8183A1559490100C00D94 /* SquadreViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquadreViewController1.m; sourceTree = "<group>"; };
 		E8E8183C1559504000C00D94 /* CalciatoriViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalciatoriViewController1.h; sourceTree = "<group>"; };
@@ -274,6 +285,8 @@
 				E80BECB1155A5D3B00FC9572 /* PlayerAssignmentController.m */,
 				E8E8183C1559504000C00D94 /* CalciatoriViewController1.h */,
 				E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */,
+				E8E3B361155BD096004DD395 /* FormazioneViewController.h */,
+				E8E3B362155BD096004DD395 /* FormazioneViewController.m */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -387,6 +400,10 @@
 		E8AAF2C414FBBF4D00799B61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E89EC229155AC888004B11CC /* Background1.png */,
+				E89EC22A155AC888004B11CC /* Background2.jpg */,
+				E89EC22B155AC888004B11CC /* Background3.png */,
+				E89EC22C155AC888004B11CC /* Background4.jpg */,
 				E8C68A841507E71A00B52D47 /* body.png */,
 				E8A8416F150766A900A9D20C /* Cartellini.png */,
 				E8A84170150766A900A9D20C /* Gol.png */,
@@ -490,6 +507,10 @@
 				E8A8417D15076BDF00A9D20C /* Background.png in Resources */,
 				E8A8417F1507AAB100A9D20C /* TODO.txt in Resources */,
 				E8C68A851507E71A00B52D47 /* body.png in Resources */,
+				E89EC22D155AC888004B11CC /* Background1.png in Resources */,
+				E89EC22E155AC888004B11CC /* Background2.jpg in Resources */,
+				E89EC22F155AC888004B11CC /* Background3.png in Resources */,
+				E89EC230155AC888004B11CC /* Background4.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +554,7 @@
 				E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */,
 				E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */,
 				E80BECB2155A5D3B00FC9572 /* PlayerAssignmentController.m in Sources */,
+				E8E3B363155BD096004DD395 /* FormazioneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,16 +11,39 @@
 #import "PlayerAssignmentController.h"
 #import "NSObject+SBJSON.h"
 #import "Constants.h"
+#import "FormazioneViewController.h"
 
 @implementation MenuTabBarController
 
 @synthesize players, needsReload;
 
-#define UNSELECTED                  0
-#define SELECTED_TITOLARE           1
-#define SELECTED_PANCHINARO         2
+- (void) updateInitialBadges
+{
+    for ( int i = 0; i < [[ self viewControllers ] count ]; i ++ ) {
+        
+        UITabBarItem * item = [[ self.tabBar items ] objectAtIndex:i ];
+        int tag = item.tag;
+        
+        UIViewController * controller = [[ self viewControllers ] objectAtIndex:i ];
+        if ( [ controller isKindOfClass:[ PlayerAssignmentController class ]] ) {
+            
+            if ( tag == 0 ) {
+                
+                controller.tabBarItem.badgeValue = [ NSString stringWithFormat:@"0/11" ];
+                
+            }
+            else if ( tag == 1 ) {
+                
+                controller.tabBarItem.badgeValue = [ NSString stringWithFormat:@"0/%d", [ ruoliPanchinari count ]];
+                
+            }
+            
+        }
+        
+    }
+}
 
-- (PlayerAssignmentController*) playerControllerWithTag:(int) aTag
+- (UIViewController*) playerControllerWithTag:(int) aTag
 {
     for ( int i = 0; i < [[ self viewControllers ] count ]; i ++ ) {
         
@@ -28,11 +51,46 @@
         int tag = item.tag;
         
         if ( tag == aTag ) {
-            return (PlayerAssignmentController*) [[ self viewControllers ] objectAtIndex:i ];
+            return [[ self viewControllers ] objectAtIndex:i ];
         }
     }
     
     return nil;
+}
+
+- (void) reloadAllSubControllers
+{
+    FormazioneViewController * formazioneController = (FormazioneViewController*)[ self playerControllerWithTag:2 ];
+    formazioneController.formazioni = formazioni;
+    formazioneController.selectedFormazione = selectedFormazione;
+    
+    for ( int i = 0; i < [[ self viewControllers ] count ]; i ++ ) {
+        UIViewController * controller = [[ self viewControllers ] objectAtIndex:i ];
+        if ( [ controller isKindOfClass:[ PlayerAssignmentController class ]] ) {
+            PlayerAssignmentController * c = (PlayerAssignmentController*) controller;
+            c.needsReload = YES;
+        }
+    }
+    
+    if ( [[ self selectedViewController ] isKindOfClass:[ UITableViewController class ]] ) {
+        [ ((UITableViewController*)[ self selectedViewController ]).tableView reloadData ];
+    }
+    
+    [ self updateInitialBadges ];
+}
+
+
+- (void) changeFormazioneSelected:(int) index
+{
+    if ( selectedFormazione == index ) 
+        return;
+    selectedFormazione = index;
+    
+    for ( id player in self.players ) {
+        [ player setValue:NO forKey:@"SELECTED" ];
+    }
+    
+    [ self reloadAllSubControllers ];
 }
 
 - (void)hudWasHidden {
@@ -65,32 +123,6 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (void) updateInitialBadges
-{
-    for ( int i = 0; i < [[ self viewControllers ] count ]; i ++ ) {
-        
-        UITabBarItem * item = [[ self.tabBar items ] objectAtIndex:i ];
-        int tag = item.tag;
-        
-        UIViewController * controller = [[ self viewControllers ] objectAtIndex:i ];
-        if ( [ controller isKindOfClass:[ PlayerAssignmentController class ]] ) {
-            
-            if ( tag == 0 ) {
-                
-                controller.tabBarItem.badgeValue = [ NSString stringWithFormat:@"0/11" ];
-                
-            }
-            else if ( tag == 1 ) {
-                
-                controller.tabBarItem.badgeValue = [ NSString stringWithFormat:@"0/%d", [ ruoliPanchinari count ]];
-                
-            }
-            
-        }
-        
-    }
 }
 
 - (NSArray*) selectedFormatione:(PlayerAssignmentController*) controller
@@ -228,7 +260,6 @@
             
             NSMutableDictionary * player = [ NSMutableDictionary dictionaryWithDictionary:[ calciatori valueForKey:calciatore ]];
             
-            [ player setValue:[ NSNumber numberWithInt:UNSELECTED ] forKey:@"selected" ];
             [ player setValue:calciatore forKey:@"id_calciatore" ];
             
             // Statistiche calciatore
@@ -251,17 +282,8 @@
         NSLog(@"Exception: %@", [ error description ]);
 	}
     
-    if ( [[ self selectedViewController ] isKindOfClass:[ PlayerAssignmentController class ]] ) {
-        PlayerAssignmentController * c = (PlayerAssignmentController*)[ self selectedViewController ];
-        c.needsReload = YES;
-        [ c reloadData ];
-    }
-    else if ( [[ self selectedViewController ] isKindOfClass:[ UITableViewController class ]] ) {
-        [ ((UITableViewController*)[ self selectedViewController ]).tableView reloadData ];
-    }
-    
-    [ self updateInitialBadges ];
-    
+    [ self reloadAllSubControllers ];
+        
 }
 
 - (void) connector:(Connector*)aConnector fail:(NSError*) error withContext:(id) context
@@ -302,14 +324,21 @@
 - (void)viewDidLoad
 {
     [ super viewDidLoad ];
-    
     self.players = [ NSMutableArray array ];
+}
+
+- (IBAction) selected:(id)sender
+{
+    NSLog(@"Ciao");
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [ super viewDidAppear:animated ];
     
+//	UIView * view = self.navigationController.view;
+//    view.backgroundColor = [ UIColor colorWithPatternImage:[ UIImage imageNamed:@"Background1.png" ]];
+
     if ( needsReload ) {
         needsReload = NO;
         [ self loadData ];
@@ -339,8 +368,8 @@
     BOOL complete = YES;
     
     // Titolari
-    NSArray * descriptions = [ self playerControllerWithTag:0 ].placeDescription;
-    NSArray * assignements = [ self playerControllerWithTag:0 ].playerAssignement;
+    NSArray * descriptions = ((PlayerAssignmentController*)[ self playerControllerWithTag:0 ]).placeDescription;
+    NSArray * assignements = ((PlayerAssignmentController*)[ self playerControllerWithTag:0 ]).playerAssignement;
     
     for (int i = 0; i < [ descriptions count ]; i ++ ) {
         id player = [ assignements objectAtIndex:i ];
@@ -354,8 +383,8 @@
     }
     
     // Riserve
-    descriptions = [ self playerControllerWithTag:1 ].placeDescription;
-    assignements = [ self playerControllerWithTag:1 ].playerAssignement;
+    descriptions = ((PlayerAssignmentController*)[ self playerControllerWithTag:1 ]).placeDescription;
+    assignements = ((PlayerAssignmentController*)[ self playerControllerWithTag:1 ]).playerAssignement;
     
     for (int i = 0; i < [ descriptions count ]; i ++ ) {
         id player = [ assignements objectAtIndex:i ];

@@ -116,7 +116,7 @@
     
     self.title = @"iFantapazz";
     
-    // [ self setBackgroundOfTableView:[ UIImage imageNamed:@"body.png" ]];
+    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
