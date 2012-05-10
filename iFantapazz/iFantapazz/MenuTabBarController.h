@@ -35,4 +35,6 @@
 
 - (IBAction) send:(id)sender;
 
+- (void) changeFormazioneSelected:(int) index;
+
 @end

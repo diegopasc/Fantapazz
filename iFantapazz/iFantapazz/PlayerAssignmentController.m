@@ -10,6 +10,7 @@
 #import "CalciatoriViewController1.h"
 #import "MenuTabBarController.h"
 #import "OHAttributedLabel.h"
+#import "UITableViewController+Additions.h"
 #import "Constants.h"
 
 @interface PlayerAssignmentController (PrivateMethods)
@@ -96,6 +97,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 }
 
 - (void)viewDidUnload

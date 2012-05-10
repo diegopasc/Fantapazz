@@ -7,6 +7,7 @@
 //
 
 #import "CalciatoriViewController1.h"
+#import "UITableViewController+Additions.h"
 #import "OHAttributedLabel.h"
 #import "Constants.h"
 
@@ -20,6 +21,8 @@
 {
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
+    
+    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 }
 
 - (void) viewDidUnload
