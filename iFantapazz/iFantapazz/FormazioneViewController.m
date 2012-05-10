@@ -44,6 +44,10 @@
     [super viewDidAppear:animated];
     
     [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
+    
+    id key = [[ self.formazioni allKeys ] objectAtIndex:selectedFormazione ];
+    NSString * formazione = [ self.formazioni valueForKey:key ];
+    self.tabBarItem.badgeValue = formazione;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

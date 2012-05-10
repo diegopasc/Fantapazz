@@ -79,6 +79,7 @@
 		E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183A1559490100C00D94 /* SquadreViewController1.m */; };
 		E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */; };
 		E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8184315596E1000C00D94 /* MenuTabBarController.m */; };
+		E8EFE552155C0ADF008E51DF /* RosaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EFE551155C0ADF008E51DF /* RosaViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,8 @@
 		E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalciatoriViewController1.m; sourceTree = "<group>"; };
 		E8E8184215596E0F00C00D94 /* MenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTabBarController.h; sourceTree = "<group>"; };
 		E8E8184315596E1000C00D94 /* MenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTabBarController.m; sourceTree = "<group>"; };
+		E8EFE550155C0ADF008E51DF /* RosaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosaViewController.h; sourceTree = "<group>"; };
+		E8EFE551155C0ADF008E51DF /* RosaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosaViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +290,8 @@
 				E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */,
 				E8E3B361155BD096004DD395 /* FormazioneViewController.h */,
 				E8E3B362155BD096004DD395 /* FormazioneViewController.m */,
+				E8EFE550155C0ADF008E51DF /* RosaViewController.h */,
+				E8EFE551155C0ADF008E51DF /* RosaViewController.m */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				E8E8184415596E1100C00D94 /* MenuTabBarController.m in Sources */,
 				E80BECB2155A5D3B00FC9572 /* PlayerAssignmentController.m in Sources */,
 				E8E3B363155BD096004DD395 /* FormazioneViewController.m in Sources */,
+				E8EFE552155C0ADF008E51DF /* RosaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
