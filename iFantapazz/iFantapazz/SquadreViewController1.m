@@ -11,6 +11,7 @@
 #import "UITableViewController+Additions.h"
 #import "MenuTabBarController.h"
 #import "Constants.h"
+#import "GANTracker.h"
 
 @implementation SquadreViewController1
 
@@ -147,6 +148,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [ super viewDidAppear:animated ];
+    
+    NSError * error;
+    if (![[GANTracker sharedTracker] trackPageview:@"/squadre"
+                                         withError:&error]) {
+        NSLog(@"error in trackPageview");
+    }
+    
     [ self refreshPropertyList ];
 }
 

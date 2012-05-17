@@ -11,6 +11,7 @@
 #import "NSString+SBJSON.h"
 #import "Constants.h"
 #import "SquadreViewController1.h"
+#import "GANTracker.h"
 
 #import "UITableViewController+Additions.h"
 
@@ -82,9 +83,9 @@
     return;
     
 #endif
-
+    
     [ self startHUDUndeterminate:@"Logging..." ];
-
+    
     NSString * loginURL = [ NSString stringWithFormat:@"%@/servizi/login?token=%@&user=%@&pass=%@",
                            FANTAPAZZ_URL,
                            FANTAPAZZ_API_TOKEN,
@@ -94,7 +95,7 @@
     NSMutableURLRequest *request = [[[ NSMutableURLRequest alloc ] init ] autorelease ];
     [ request setURL:[ NSURL URLWithString:loginURL ]];
     [ request setHTTPMethod:@"GET" ];
-        
+    
     Connector * connector = [[ Connector alloc ] initWithDelegate:self ];
     [ connector startRequest:request withContext:nil ];
     [ connector release ];
@@ -104,7 +105,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-        
+    
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -117,10 +118,10 @@
     self.title = @"iFantapazz";
     
     [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -141,6 +142,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [ super viewDidAppear:animated ];
+    
+    NSError * error;
+    if (![[GANTracker sharedTracker] trackPageview:@"/login"
+                                         withError:&error]) {
+        NSLog(@"error in trackPageview");
+    }
     
     username.clearButtonMode = UITextFieldViewModeAlways;
     password.clearButtonMode = UITextFieldViewModeAlways;
