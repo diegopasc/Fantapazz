@@ -565,7 +565,7 @@
         
         NSString * key = [[ formazioni allKeys ] objectAtIndex:selectedFormazione ];
         NSString * formazione = [ formazioni valueForKey:key ];
-        NSArray * components = [ formazione componentsSeparatedByString:@"-" ];
+        // NSArray * components = [ formazione componentsSeparatedByString:@"-" ];
 
         UILabel * label;
         for ( UIView * subview in cell.contentView.subviews ) {

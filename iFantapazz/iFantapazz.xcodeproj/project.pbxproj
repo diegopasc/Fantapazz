@@ -54,6 +54,9 @@
 		E8A8417B15076BCD00A9D20C /* UITableViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A8417915076BCC00A9D20C /* UITableViewController+Additions.m */; };
 		E8A8417D15076BDF00A9D20C /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A8417C15076BDE00A9D20C /* Background.png */; };
 		E8A8417F1507AAB100A9D20C /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = E8A8417E1507AAB000A9D20C /* TODO.txt */; };
+		E8A850361563DAE500AD9091 /* libGoogleAnalytics_NoThumb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A850341563DAE500AD9091 /* libGoogleAnalytics_NoThumb.a */; };
+		E8A850371563DAE500AD9091 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A850351563DAE500AD9091 /* libGoogleAnalytics.a */; };
+		E8A8503A1563DB4E00AD9091 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A850391563DB4E00AD9091 /* libsqlite3.dylib */; };
 		E8AAF24914F8117C00799B61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AAF24814F8117C00799B61 /* UIKit.framework */; };
 		E8AAF24B14F8117C00799B61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AAF24A14F8117C00799B61 /* Foundation.framework */; };
 		E8AAF24D14F8117C00799B61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AAF24C14F8117C00799B61 /* CoreGraphics.framework */; };
@@ -158,6 +161,10 @@
 		E8A8417915076BCC00A9D20C /* UITableViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+Additions.m"; sourceTree = "<group>"; };
 		E8A8417C15076BDE00A9D20C /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		E8A8417E1507AAB000A9D20C /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TODO.txt; path = iFantapazz/TODO.txt; sourceTree = "<group>"; };
+		E8A850331563DAE500AD9091 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GANTracker.h; path = iFantapazz/GANTracker.h; sourceTree = "<group>"; };
+		E8A850341563DAE500AD9091 /* libGoogleAnalytics_NoThumb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_NoThumb.a; path = iFantapazz/libGoogleAnalytics_NoThumb.a; sourceTree = "<group>"; };
+		E8A850351563DAE500AD9091 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = iFantapazz/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		E8A850391563DB4E00AD9091 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		E8AAF24414F8117C00799B61 /* iFantapazz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFantapazz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AAF24814F8117C00799B61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E8AAF24A14F8117C00799B61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -205,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A8503A1563DB4E00AD9091 /* libsqlite3.dylib in Frameworks */,
 				E88BEAE81501303D00595BC9 /* libxml2.dylib in Frameworks */,
 				E88BEAE615012FCC00595BC9 /* AVFoundation.framework in Frameworks */,
 				E88BEAE415012FC600595BC9 /* MediaPlayer.framework in Frameworks */,
@@ -219,6 +227,8 @@
 				E8AAF24914F8117C00799B61 /* UIKit.framework in Frameworks */,
 				E8AAF24B14F8117C00799B61 /* Foundation.framework in Frameworks */,
 				E8AAF24D14F8117C00799B61 /* CoreGraphics.framework in Frameworks */,
+				E8A850361563DAE500AD9091 /* libGoogleAnalytics_NoThumb.a in Frameworks */,
+				E8A850371563DAE500AD9091 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +309,7 @@
 		E8AAF23914F8117B00799B61 = {
 			isa = PBXGroup;
 			children = (
+				E8A850391563DB4E00AD9091 /* libsqlite3.dylib */,
 				E8A8417E1507AAB000A9D20C /* TODO.txt */,
 				E88BEAE71501303C00595BC9 /* libxml2.dylib */,
 				E8AAF24E14F8117C00799B61 /* iFantapazz */,
@@ -318,6 +329,9 @@
 		E8AAF24714F8117C00799B61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8A850331563DAE500AD9091 /* GANTracker.h */,
+				E8A850341563DAE500AD9091 /* libGoogleAnalytics_NoThumb.a */,
+				E8A850351563DAE500AD9091 /* libGoogleAnalytics.a */,
 				E8AAF2B614FB7D1600799B61 /* libz.dylib */,
 				E88BEAE515012FCB00595BC9 /* AVFoundation.framework */,
 				E88BEAE315012FC600595BC9 /* MediaPlayer.framework */,
@@ -644,6 +658,10 @@
 				GCC_PREFIX_HEADER = "iFantapazz/iFantapazz-Prefix.pch";
 				INFOPLIST_FILE = "iFantapazz/iFantapazz-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/iFantapazz\"",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -669,6 +687,10 @@
 				GCC_PREFIX_HEADER = "iFantapazz/iFantapazz-Prefix.pch";
 				INFOPLIST_FILE = "iFantapazz/iFantapazz-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/iFantapazz\"",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

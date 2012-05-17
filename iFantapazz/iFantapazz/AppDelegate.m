@@ -10,6 +10,13 @@
 #import "Constants.h"
 #import "Connector.h"
 
+#import "GANTracker.h"
+
+// Dispatch period in seconds
+static const NSInteger kGANDispatchPeriodSec = 10;
+
+static NSString* const kAnalyticsAccountId = @"UA-31806606-1";
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -18,14 +25,41 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
-//- (void)dealloc
-//{
-//    [_window release];
-//    [super dealloc];
-//}
+- (void)dealloc
+{
+    [[GANTracker sharedTracker] stopTracker];
+    [_window release];
+    [super dealloc];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[GANTracker sharedTracker] startTrackerWithAccountID:kAnalyticsAccountId
+                                           dispatchPeriod:kGANDispatchPeriodSec
+                                                 delegate:nil];
+//    NSError *error;
+    
+//    if (![[GANTracker sharedTracker] setCustomVariableAtIndex:1
+//                                                         name:@"iOS1"
+//                                                        value:@"iv1"
+//                                                    withError:&error]) {
+//        NSLog(@"error in setCustomVariableAtIndex");
+//    }
+    
+//    if (![[GANTracker sharedTracker] trackEvent:@"Application iOS"
+//                                         action:@"Launch iOS"
+//                                          label:@"Example iOS"
+//                                          value:99
+//                                      withError:&error]) {
+//        NSLog(@"error in trackEvent");
+//    }
+    
+//    if (![[GANTracker sharedTracker] trackPageview:@"/app_entry_point"
+//                                         withError:&error]) {
+//        NSLog(@"error in trackPageview");
+//    }
+    
     return YES;
 }
 							

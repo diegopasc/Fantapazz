@@ -206,12 +206,12 @@
                     }
                     NSString * string = (NSString*)[ object valueForKey:@"partita" ];
                     NSMutableAttributedString * aString = [[ NSMutableAttributedString alloc ] initWithString:string ];
-                    [ aString setFont:[ UIFont systemFontOfSize:12.0 ]];
+                    // [ aString setFont:[ UIFont systemFontOfSize:12.0 ]];
                     NSRange begin = [ string rangeOfString:@"<strong>" ];
                     NSRange end = [ string rangeOfString:@"</strong>" ];
-                    NSRange bold = NSMakeRange(begin.location + begin.length, end.location - (begin.location + begin.length));
+                    // NSRange bold = NSMakeRange(begin.location + begin.length, end.location - (begin.location + begin.length));
                     // NSLog(@"%@ Line: %@", NSStringFromRange(bold), string);
-                    [ aString setTextBold:YES range:bold ];
+                    // [ aString setTextBold:YES range:bold ];
                     [ aString replaceCharactersInRange:end withString:@"" ];
                     [ aString replaceCharactersInRange:begin withString:@"" ];
                     aLabel.attributedText = aString;

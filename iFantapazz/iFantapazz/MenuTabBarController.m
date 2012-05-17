@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "FormazioneViewController.h"
 #import "RosaViewController.h"
+#import "GANTracker.h"
 
 @implementation MenuTabBarController
 
@@ -76,7 +77,7 @@
     FormazioneViewController * formazioneController = (FormazioneViewController*)[ self playerControllerWithTag:2 ];
     formazioneController.formazioni = formazioni;
     formazioneController.selectedFormazione = selectedFormazione;
-
+    
     // Rosa view controller
     RosaViewController * rosaController = (RosaViewController*)[ self playerControllerWithTag:3 ];
     
@@ -226,7 +227,7 @@
     [ self stopHUDUndeterminate ];
     
     if ([ aContext isEqualToString:@"Submit" ]) {
-
+        
         NSString * stringData = [[[ NSString alloc] initWithData:data encoding:NSASCIIStringEncoding ] autorelease ];
         
 		id ret = [ stringData JSONFragmentValue ];
@@ -247,7 +248,7 @@
         }
         
         return;
-
+        
     }
     
     [ self.players removeAllObjects ];
@@ -311,7 +312,7 @@
 	}
     
     [ self reloadAllSubControllers ];
-        
+    
 }
 
 - (void) connector:(Connector*)aConnector fail:(NSError*) error withContext:(id) context
@@ -364,9 +365,9 @@
 {
     [ super viewDidAppear:animated ];
     
-//	UIView * view = self.navigationController.view;
-//    view.backgroundColor = [ UIColor colorWithPatternImage:[ UIImage imageNamed:@"Background1.png" ]];
-
+    //	UIView * view = self.navigationController.view;
+    //    view.backgroundColor = [ UIColor colorWithPatternImage:[ UIImage imageNamed:@"Background1.png" ]];
+    
     if ( needsReload ) {
         needsReload = NO;
         [ self loadData ];
@@ -496,6 +497,15 @@
     Connector * submitFormazione = [[ Connector alloc ] initWithDelegate:self ];
     [ submitFormazione startRequest:request withContext:@"Submit" ];
     [ submitFormazione release ];
+    
+    NSError * error;
+    if (![[GANTracker sharedTracker] trackEvent:@"Invio formazione"
+                                         action:@"Invio formazione action"
+                                          label:@"Invio formazione"
+                                          value:0
+                                      withError:&error]) {
+        NSLog(@"error in trackEvent");
+    }
     
 }
 
