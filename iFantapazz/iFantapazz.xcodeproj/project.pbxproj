@@ -77,7 +77,17 @@
 		E8AAF2C814FBBF9F00799B61 /* squalificati.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AAF2C614FBBF9F00799B61 /* squalificati.png */; };
 		E8AAF2CB14FBC44300799B61 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2CA14FBC44200799B61 /* LoginViewController.m */; };
 		E8AAF2D114FBD37C00799B61 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */; };
+		E8BA5FC115736F47004D82FE /* bg-row-even.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FBF15736F47004D82FE /* bg-row-even.png */; };
+		E8BA5FC215736F47004D82FE /* bg-row-odd.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC015736F47004D82FE /* bg-row-odd.png */; };
+		E8BA5FCA15736FEC004D82FE /* ominoA.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC415736FEC004D82FE /* ominoA.png */; };
+		E8BA5FCB15736FEC004D82FE /* ominoC.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC515736FEC004D82FE /* ominoC.png */; };
+		E8BA5FCC15736FEC004D82FE /* ominoD.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC615736FEC004D82FE /* ominoD.png */; };
+		E8BA5FCD15736FEC004D82FE /* ominoP.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC715736FEC004D82FE /* ominoP.png */; };
+		E8BA5FCE15736FEC004D82FE /* politico.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC815736FEC004D82FE /* politico.png */; };
+		E8BA5FCF15736FEC004D82FE /* squalificato.png in Resources */ = {isa = PBXBuildFile; fileRef = E8BA5FC915736FEC004D82FE /* squalificato.png */; };
 		E8C68A851507E71A00B52D47 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C68A841507E71A00B52D47 /* body.png */; };
+		E8DBE9AB1573C85B005EF5B3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DBE9A91573C85B005EF5B3 /* Icon.png */; };
+		E8DBE9AC1573C85B005EF5B3 /* Icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DBE9AA1573C85B005EF5B3 /* Icon2.png */; };
 		E8E3B363155BD096004DD395 /* FormazioneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E3B362155BD096004DD395 /* FormazioneViewController.m */; };
 		E8E8183B1559490100C00D94 /* SquadreViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183A1559490100C00D94 /* SquadreViewController1.m */; };
 		E8E8183E1559504000C00D94 /* CalciatoriViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8183D1559504000C00D94 /* CalciatoriViewController1.m */; };
@@ -194,7 +204,17 @@
 		E8AAF2CA14FBC44200799B61 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E8AAF2CF14FBD37B00799B61 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E8AAF2D014FBD37C00799B61 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E8BA5FBF15736F47004D82FE /* bg-row-even.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-row-even.png"; sourceTree = "<group>"; };
+		E8BA5FC015736F47004D82FE /* bg-row-odd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-row-odd.png"; sourceTree = "<group>"; };
+		E8BA5FC415736FEC004D82FE /* ominoA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ominoA.png; sourceTree = "<group>"; };
+		E8BA5FC515736FEC004D82FE /* ominoC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ominoC.png; sourceTree = "<group>"; };
+		E8BA5FC615736FEC004D82FE /* ominoD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ominoD.png; sourceTree = "<group>"; };
+		E8BA5FC715736FEC004D82FE /* ominoP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ominoP.png; sourceTree = "<group>"; };
+		E8BA5FC815736FEC004D82FE /* politico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = politico.png; sourceTree = "<group>"; };
+		E8BA5FC915736FEC004D82FE /* squalificato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squalificato.png; sourceTree = "<group>"; };
 		E8C68A841507E71A00B52D47 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
+		E8DBE9A91573C85B005EF5B3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = iFantapazz/Icon.png; sourceTree = "<group>"; };
+		E8DBE9AA1573C85B005EF5B3 /* Icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon2.png; path = iFantapazz/Icon2.png; sourceTree = "<group>"; };
 		E8E3B361155BD096004DD395 /* FormazioneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormazioneViewController.h; sourceTree = "<group>"; };
 		E8E3B362155BD096004DD395 /* FormazioneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormazioneViewController.m; sourceTree = "<group>"; };
 		E8E818391559490100C00D94 /* SquadreViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquadreViewController1.h; sourceTree = "<group>"; };
@@ -310,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				E8A850391563DB4E00AD9091 /* libsqlite3.dylib */,
+				E8DBE9A91573C85B005EF5B3 /* Icon.png */,
+				E8DBE9AA1573C85B005EF5B3 /* Icon2.png */,
 				E8A8417E1507AAB000A9D20C /* TODO.txt */,
 				E88BEAE71501303C00595BC9 /* libxml2.dylib */,
 				E8AAF24E14F8117C00799B61 /* iFantapazz */,
@@ -419,6 +441,14 @@
 		E8AAF2C414FBBF4D00799B61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E8BA5FC415736FEC004D82FE /* ominoA.png */,
+				E8BA5FC515736FEC004D82FE /* ominoC.png */,
+				E8BA5FC615736FEC004D82FE /* ominoD.png */,
+				E8BA5FC715736FEC004D82FE /* ominoP.png */,
+				E8BA5FC815736FEC004D82FE /* politico.png */,
+				E8BA5FC915736FEC004D82FE /* squalificato.png */,
+				E8BA5FBF15736F47004D82FE /* bg-row-even.png */,
+				E8BA5FC015736F47004D82FE /* bg-row-odd.png */,
 				E89EC229155AC888004B11CC /* Background1.png */,
 				E89EC22A155AC888004B11CC /* Background2.jpg */,
 				E89EC22B155AC888004B11CC /* Background3.png */,
@@ -530,6 +560,16 @@
 				E89EC22E155AC888004B11CC /* Background2.jpg in Resources */,
 				E89EC22F155AC888004B11CC /* Background3.png in Resources */,
 				E89EC230155AC888004B11CC /* Background4.jpg in Resources */,
+				E8BA5FC115736F47004D82FE /* bg-row-even.png in Resources */,
+				E8BA5FC215736F47004D82FE /* bg-row-odd.png in Resources */,
+				E8BA5FCA15736FEC004D82FE /* ominoA.png in Resources */,
+				E8BA5FCB15736FEC004D82FE /* ominoC.png in Resources */,
+				E8BA5FCC15736FEC004D82FE /* ominoD.png in Resources */,
+				E8BA5FCD15736FEC004D82FE /* ominoP.png in Resources */,
+				E8BA5FCE15736FEC004D82FE /* politico.png in Resources */,
+				E8BA5FCF15736FEC004D82FE /* squalificato.png in Resources */,
+				E8DBE9AB1573C85B005EF5B3 /* Icon.png in Resources */,
+				E8DBE9AC1573C85B005EF5B3 /* Icon2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +645,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Diego Pasciuto";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Diego Pasciuto";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -620,6 +661,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "F695BF10-0B05-44CE-8BFF-A734761928C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F695BF10-0B05-44CE-8BFF-A734761928C7";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -629,7 +672,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Diego Pasciuto";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Diego Pasciuto";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -638,6 +682,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "F695BF10-0B05-44CE-8BFF-A734761928C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F695BF10-0B05-44CE-8BFF-A734761928C7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -665,7 +711,6 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "90BC9E4B-A4E8-4219-A0F4-EB167D04D33A";
 				SDKROOT = iphoneos5.0;
 				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				WRAPPER_EXTENSION = app;

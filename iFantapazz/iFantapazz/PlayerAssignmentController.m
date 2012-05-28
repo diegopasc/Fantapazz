@@ -97,7 +97,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+        
     [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 }
 
@@ -183,7 +183,7 @@
         object = [ NSDictionary dictionary ];
         empty = YES;
     }
-    
+
     UILabel * label;
     OHAttributedLabel * aLabel;
     UIImageView * imageView;
@@ -192,6 +192,56 @@
     
     for ( UIView * subview in cell.contentView.subviews ) {
         switch ([ subview tag ]) {
+
+            case 400:
+                imageView = (UIImageView*) subview;
+                if ( [[ description valueForKey:@"assigned" ] isEqual:@"NO" ]) {
+                    imageView.image = nil; // [ UIImage imageNamed:@"bg-row-odd.png" ];
+                }
+                else {
+                    imageView.image = [ UIImage imageNamed:@"bg-row-even.png" ];
+                }
+                break;
+                
+            case 300:
+                imageView = (UIImageView*) subview;
+                if ( [[ description valueForKey:@"role" ] isEqual:@"P" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoP.png" ];
+                }
+                if ( [[ description valueForKey:@"role" ] isEqual:@"D" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoD.png" ];
+                }
+                if ( [[ description valueForKey:@"role" ] isEqual:@"C" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoC.png" ];
+                }
+                if ( [[ description valueForKey:@"role" ] isEqual:@"A" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoA.png" ];
+                }
+                
+                /*
+                if ( [[ description valueForKey:@"role" ] isEqual:@"?" ] ) {
+                    if ( [[ description valueForKey:@"assigned" ] isEqual:@"NO" ]) {
+                        cell.backgroundColor = COLOR_ALTRO;
+                    }
+                    else {
+                        if ( [[ object valueForKey:@"Ruolo" ] isEqual:@"P" ] ) {
+                            cell.backgroundColor = COLOR_PORTIERE;
+                        }
+                        if ( [[ object valueForKey:@"Ruolo" ] isEqual:@"D" ] ) {
+                            cell.backgroundColor = COLOR_DIFENSORE;
+                        }
+                        if ( [[ object valueForKey:@"Ruolo" ] isEqual:@"C" ] ) {
+                            cell.backgroundColor = COLOR_CENTROCAMPISTA;
+                        }
+                        if ( [[ object valueForKey:@"Ruolo" ] isEqual:@"A" ] ) {
+                            cell.backgroundColor = COLOR_ATTACCANTE;
+                        }
+                    }
+                }
+                */
+                
+                break;
+                
             case 0:
                 label = (UILabel*) subview;
                 label.text = [ object valueForKey:@"Calciatore" ];
@@ -321,8 +371,8 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    id assignment = [ placeDescription objectAtIndex:indexPath.row ];
-
+    /*
+     id assignment = [ placeDescription objectAtIndex:indexPath.row ];
     if ( [[ assignment valueForKey:@"role" ] isEqual:@"P" ] ) {
         cell.backgroundColor = COLOR_PORTIERE;
     }
@@ -355,6 +405,7 @@
             }
         }
     }
+    */
     
     // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
