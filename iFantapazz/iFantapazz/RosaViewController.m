@@ -20,7 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
+    
+    // [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 }
 
 - (void) viewDidUnload
@@ -79,8 +80,34 @@
     
     for ( UIView * subview in cell.contentView.subviews ) {
         switch ([ subview tag ]) {
+                
+            case 400:
+                imageView = (UIImageView*) subview;
+                if ( indexPath.row % 2 == 0 )
+                    imageView.image = [ UIImage imageNamed:@"bg-row-even.png" ];
+                else
+                    imageView.image = [ UIImage imageNamed:@"bg-row-odd.png" ];
+                break;
+            
+            case 300:
+                imageView = (UIImageView*) subview;
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"P" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoP.png" ];
+                }
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"D" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoD.png" ];
+                }
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"C" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoC.png" ];
+                }
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"A" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoA.png" ];
+                }
+                break;
+                
             case 0:
                 label = (UILabel*) subview;
+                // NSLog(@"Label: %p, %@", label, [ object description ]);
                 label.text = [ object valueForKey:@"Calciatore" ];
                 break;
                 
@@ -217,7 +244,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-        
+            
     [ self configureCell:cell atIndexPath:indexPath ];
     
     return cell;

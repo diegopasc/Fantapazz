@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
     
-    [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
+    // [ self setBackgroundOfTableView:[ UIImage imageNamed:@"Background1.png" ]];
 }
 
 - (void) viewDidUnload
@@ -80,6 +80,33 @@
     
     for ( UIView * subview in cell.contentView.subviews ) {
         switch ([ subview tag ]) {
+                
+            case 400:
+                imageView = (UIImageView*) subview;
+                if ( [[ object valueForKey:@"SELECTED" ] isEqual:@"YES" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"bg-row-even.png" ];
+                }
+                else {
+                    imageView.image = nil; // [ UIImage imageNamed:@"bg-row-odd.png" ];
+                }
+                break;
+                
+            case 300:
+                imageView = (UIImageView*) subview;                
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"P" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoP.png" ];
+                }
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"D" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoD.png" ];
+                }
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"C" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoC.png" ];
+                }
+                if ( [[ object valueForKey:@"Ruolo" ] isEqualToString:@"A" ] ) {
+                    imageView.image = [ UIImage imageNamed:@"ominoA.png" ];
+                }
+                break;
+                
             case 0:
                 label = (UILabel*) subview;
                 label.text = [ object valueForKey:@"Calciatore" ];
@@ -195,6 +222,7 @@
         }
     }
     
+    /*
     if ( [[ object valueForKey:@"Ruolo" ] isEqual:@"P" ] ) {
         cell.backgroundColor = COLOR_PORTIERE;
     }
@@ -213,6 +241,7 @@
     if ( [[ object valueForKey:@"SELECTED" ] isEqual:@"YES" ] ) {
         cell.backgroundColor = COLOR_DISABLED;
     }
+    */
     
 }
 
